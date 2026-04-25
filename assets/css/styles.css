@@ -1,0 +1,861 @@
+/* ============================================
+   Accademia ArrampiKata RCC — CSS pulito
+   Marco Nescatelli, aprile 2026
+   ============================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --orange: #ff6b1a;
+  --orange-dark: #e85a0e;
+  --black: #0a0a0a;
+  --gray-900: #1a1a1a;
+  --gray-700: #404040;
+  --gray-500: #737373;
+  --gray-300: #d4d4d4;
+  --gray-100: #f5f5f5;
+  --gray-50: #fafafa;
+  --white: #ffffff;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+
+  --w-narrow: 1180px;
+  --pad-x: clamp(20px, 4vw, 48px);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-900);
+  background: var(--white);
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ------- HEADER / NAV ------- */
+header.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--gray-300);
+}
+.nav-wrap {
+  max-width: var(--w-narrow);
+  margin: 0 auto;
+  padding: 16px var(--pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.nav-links {
+  display: flex;
+  gap: clamp(12px, 2vw, 28px);
+  align-items: center;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-700);
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--orange); }
+.nav-links a.active { color: var(--gray-900); }
+.nav-links a.cta {
+  background: var(--orange);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+.nav-links a.cta:hover { background: var(--orange-dark); color: var(--white); }
+@media (max-width: 600px) {
+  .nav-links a { font-size: 12px; }
+  .nav-links a.cta { padding: 8px 14px; }
+}
+
+/* ------- HERO ------- */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/img/img-accademia-gruppo.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+  z-index: 1;
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--w-narrow);
+  padding: 80px var(--pad-x);
+}
+.hero-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 7vw, 88px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.hero p.hero-sub {
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 300;
+  opacity: 0.95;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-block;
+  padding: 16px 32px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: all 0.15s;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.btn-primary {
+  background: var(--orange);
+  color: var(--white);
+}
+.btn-primary:hover { background: var(--orange-dark); }
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255,255,255,0.6);
+}
+.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+/* ------- SECTIONS GENERIC ------- */
+section.block {
+  padding: clamp(60px, 10vw, 120px) var(--pad-x);
+}
+.block-inner {
+  max-width: var(--w-narrow);
+  margin: 0 auto;
+}
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+h2.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+p.section-lead {
+  font-size: clamp(16px, 1.6vw, 19px);
+  color: var(--gray-700);
+  max-width: 700px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+}
+
+/* ------- VALORI (6-up grid) ------- */
+.valori-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+.valore {
+  padding: 8px 0;
+}
+.valore h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.valore p {
+  color: var(--gray-500);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ------- PERCORSO 5 STEPS ------- */
+.percorso-bg { background: var(--gray-50); }
+.steps {
+  display: grid;
+  gap: 32px;
+  margin-top: 48px;
+}
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  align-items: start;
+  padding: 24px 0;
+  border-top: 1px solid var(--gray-300);
+}
+.step:first-child { border-top: none; }
+.step-num {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 700;
+  color: var(--gray-300);
+  line-height: 1;
+  min-width: 80px;
+}
+.step-body h3 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.step-body p {
+  color: var(--gray-500);
+}
+
+/* ------- PERCORSI ADULTI/BAMBINI/RAGAZZI ------- */
+.target-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+.target-card {
+  border: 1px solid var(--gray-300);
+  background: var(--white);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.target-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+.target-card-body {
+  padding: 28px 24px;
+  flex: 1;
+}
+.target-card h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.target-card p {
+  color: var(--gray-500);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ------- STATS ------- */
+.stats {
+  background: var(--black);
+  color: var(--white);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 32px;
+  text-align: center;
+}
+.stat .num {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 700;
+  color: var(--orange);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.stat .label {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+
+/* ------- KATACAMP ------- */
+.katacamp-bg { background: var(--gray-50); }
+.katacamp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .katacamp-grid { grid-template-columns: 1fr; }
+}
+.dest-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+  list-style: none;
+}
+.dest-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--gray-300);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.dest-list li::before {
+  content: "📍";
+  font-size: 14px;
+}
+
+/* ------- FONDATORE ------- */
+.fondatore-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .fondatore-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+.fondatore-bio p {
+  margin-bottom: 16px;
+  color: var(--gray-700);
+  line-height: 1.7;
+}
+.fondatore-bio a { color: var(--orange); text-decoration: underline; }
+.libro-card {
+  text-align: center;
+}
+.libro-card img {
+  max-width: 320px;
+  margin: 0 auto 24px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+/* ------- FONDAMENTA ------- */
+.fondamenta-bg { background: var(--gray-50); }
+.fondamenta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .fondamenta-grid { grid-template-columns: 1fr; }
+}
+.fondamenta-img img {
+  width: 100%;
+  border-radius: 8px;
+}
+.fondamenta-text p {
+  margin-bottom: 16px;
+  color: var(--gray-700);
+  line-height: 1.7;
+}
+
+/* ------- TEAM ------- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+.team-card {
+  border: 1px solid var(--gray-300);
+  padding: 32px 24px;
+  background: var(--white);
+}
+.team-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 16px;
+  background: var(--gray-100);
+}
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.team-card h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.team-card .role {
+  font-size: 13px;
+  color: var(--gray-500);
+  letter-spacing: 0.05em;
+}
+
+/* ------- TESTIMONIANZE ------- */
+.testimonianze-bg { background: var(--gray-50); }
+.testimonianze-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+.testimonianza {
+  border: 1px solid var(--gray-300);
+  background: var(--white);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+.testimonianza p.quote {
+  font-style: italic;
+  color: var(--gray-700);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex: 1;
+}
+.testimonianza .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+.testimonianza .author { color: var(--gray-700); }
+.testimonianza .tag {
+  color: var(--gray-500);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+/* ------- ISTRUTTORI CTA ------- */
+.istruttori-block {
+  background: var(--gray-100);
+  border: 1px solid var(--gray-300);
+  padding: clamp(40px, 6vw, 64px) var(--pad-x);
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.istruttori-block .eyebrow { color: var(--orange); }
+.istruttori-block h3 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.istruttori-block p.lead {
+  color: var(--gray-700);
+  margin-bottom: 32px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.istruttori-list {
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto 32px;
+  list-style: none;
+}
+.istruttori-list li {
+  padding: 12px 0;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+.istruttori-list li::before {
+  content: "✓";
+  color: var(--orange);
+  font-weight: 700;
+  font-size: 18px;
+}
+.istruttori-list strong { color: var(--gray-900); }
+
+/* ------- CTA SECTION ------- */
+.cta-section {
+  background: var(--black);
+  color: var(--white);
+  text-align: center;
+}
+.cta-section h2 { color: var(--white); }
+.cta-section p { color: rgba(255,255,255,0.8); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+/* ------- CONTATTI ------- */
+.contatti-bg { background: var(--gray-50); }
+.contatti-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+@media (max-width: 768px) { .contatti-grid { grid-template-columns: 1fr; } }
+.contatto-block h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+.contatto-block p { margin-bottom: 8px; color: var(--gray-700); }
+.contatto-block a { color: var(--orange); }
+
+/* ------- FOOTER ------- */
+footer.site-footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 48px var(--pad-x) 32px;
+  text-align: center;
+}
+footer.site-footer p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 8px;
+}
+footer.site-footer a { color: var(--orange); }
+
+/* ------- WHATSAPP FLOATING ------- */
+.wa-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  z-index: 50;
+  transition: transform 0.15s;
+}
+.wa-float:hover { transform: scale(1.1); }
+.wa-float svg { width: 28px; height: 28px; fill: white; }
+
+/* === MODIFICHE BATCH === */
+
+/* Team grid 2x2 con foto grandi */
+.team-grid.team-grid-2x2 {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 800px;
+  margin: 48px auto 0;
+  gap: 32px;
+}
+@media (max-width: 600px) {
+  .team-grid.team-grid-2x2 { grid-template-columns: 1fr; }
+}
+.team-photo.team-photo-large {
+  width: 160px;
+  height: 160px;
+  margin-bottom: 24px;
+}
+.team-card {
+  text-align: center;
+  padding: 40px 32px;
+}
+.team-card .team-photo {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Sezione VALORI con sfondo immagine palestra trasparente */
+section.block:nth-of-type(2) {
+  position: relative;
+  background-image: linear-gradient(rgba(255,255,255,0.96), rgba(255,255,255,0.96)), url('/assets/img/img-0dc3ab3407.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Sezione PERCORSO 5 step con sfondo */
+.percorso-bg {
+  background-image: linear-gradient(rgba(250,250,250,0.94), rgba(250,250,250,0.94)), url('/assets/img/img-accademia-gruppo.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Sezione KATACAMP con sfondo natura */
+.katacamp-bg {
+  background-image: linear-gradient(rgba(250,250,250,0.94), rgba(250,250,250,0.94)), url('/assets/img/img-katacamp-real.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* CTA Prenota: sfondo palestra forte */
+.cta-section {
+  background-image: linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.85)), url('/assets/img/img-accademia-gruppo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Fondamenta: sfondo leggero */
+.fondamenta-bg {
+  background-image: linear-gradient(rgba(250,250,250,0.97), rgba(250,250,250,0.97)), url('/assets/img/img-0dc3ab3407.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* === PAGE HERO (per pagine secondarie) === */
+.page-hero {
+  padding: clamp(80px, 10vw, 140px) var(--pad-x) clamp(40px, 6vw, 80px);
+  background-image: linear-gradient(rgba(10,10,10,0.55), rgba(10,10,10,0.75)), url('/assets/img/img-accademia-gruppo.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  text-align: center;
+}
+.page-hero .eyebrow { color: var(--orange); }
+.page-hero .page-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 16px 0;
+}
+.page-hero .page-sub {
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+/* === GALLERIA FOTO === */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 220px;
+  gap: 16px;
+  margin-top: 48px;
+}
+.gallery-item {
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--gray-100);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+.gallery-item.gallery-item-tall {
+  grid-row: span 2;
+}
+.gallery-item.gallery-item-wide {
+  grid-column: span 2;
+}
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+  }
+  .gallery-item.gallery-item-tall { grid-row: span 1; }
+  .gallery-item.gallery-item-wide { grid-column: span 2; }
+}
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item.gallery-item-wide { grid-column: span 1; }
+}
+
+/* === FIX BOTTONI === */
+a.btn.btn-primary,
+a.btn.btn-primary:link,
+a.btn.btn-primary:visited {
+  color: #ffffff !important;
+  background: var(--orange) !important;
+}
+a.btn.btn-primary:hover {
+  background: var(--orange-dark) !important;
+  color: #ffffff !important;
+}
+
+/* === SEZIONE PRINCIPI / VALORI CON ICONE === */
+.valori-bg {
+  background: var(--gray-50);
+}
+.principi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+@media (max-width: 900px) {
+  .principi-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .principi-grid { grid-template-columns: 1fr; }
+}
+.principio-card {
+  background: var(--white);
+  padding: 36px 28px;
+  border: 1px solid var(--gray-300);
+  border-radius: 4px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.principio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+.principio-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fff5ed 0%, #ffe5d0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--orange);
+}
+.principio-icon svg {
+  width: 28px;
+  height: 28px;
+}
+.principio-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--gray-900);
+}
+.principio-card p {
+  color: var(--gray-500);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* === SEZIONE COSA CI RENDE UNICI === */
+.unicita-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+@media (max-width: 900px) {
+  .unicita-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .unicita-grid { grid-template-columns: 1fr; }
+}
+.unicita-card {
+  background: var(--white);
+  padding: 36px 28px;
+  border: 1px solid var(--gray-300);
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+.unicita-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(255,107,26,0.12);
+  border-color: var(--orange);
+}
+.unicita-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: var(--gray-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--orange);
+}
+.unicita-icon svg {
+  width: 32px;
+  height: 32px;
+}
+.unicita-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.unicita-card p {
+  color: var(--gray-500);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.unicita-card p strong {
+  color: var(--gray-900);
+  font-weight: 600;
+}
+
+/* === PAGINA PROGETTI SCOLASTICI === */
+.progetti-block {
+  background: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: 4px;
+  padding: clamp(32px, 5vw, 56px);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.zone-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 600px) {
+  .zone-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.zona-card {
+  padding: 24px;
+  text-align: center;
+  border: 1px solid var(--gray-300);
+  background: var(--white);
+  border-radius: 4px;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+}
+.zona-card:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://palestra-arrampicata-roma.it/sitemap.xml
