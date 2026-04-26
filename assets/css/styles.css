@@ -372,8 +372,14 @@ a.btn.btn-primary:visited {
    8. VALORI (light, no card chrome)
    ============================================================ */
 .valori-grid {
-  --card-min: 240px;
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-5) var(--space-4);
+}
+@media (max-width: 760px) {
+  .valori-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .valori-grid { grid-template-columns: 1fr; }
 }
 .valore {
   padding: 0;
