@@ -24,6 +24,17 @@
   --terracotta:    #b9521f;   /* accent caldo secondario      */
   --ember:         #ffae5e;   /* accent chiaro / highlight    */
 
+  /* Alias per vecchie variabili (usate negli inline style delle sotto-pagine) */
+  --orange-dark:   #d8470c;
+  --gray-900:      #1c1917;
+  --gray-700:      #44403c;
+  --gray-500:      #78716c;
+  --gray-300:      #c9c2b4;
+  --gray-100:      #faf6ee;
+  --gray-50:       #faf6ee;
+  --black:         #1a1614;
+  --white:         #ffffff;
+
   --night:         #1a1614;   /* sfondi scuri (CTA, stats)    */
   --night-soft:    #2a2522;   /* sfondi scuri secondari       */
 
@@ -467,12 +478,12 @@ a.btn.btn-primary:visited {
 }
 
 /* ============================================================
-   10. TARGET — Adulti / Bambini / Ragazzi
+   10. TARGET — Adulti / Bambini / Ragazzi / Expert
    ============================================================ */
 .target-card { display: flex; flex-direction: column; }
 .target-card img {
   width: 100%;
-  height: 280px;
+  height: 220px;
   object-fit: cover;
   transition: transform var(--t-slow) var(--ease);
 }
@@ -480,6 +491,16 @@ a.btn.btn-primary:visited {
 .target-card-body {
   padding: var(--pad-card);
   flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.target-card .age-tag {
+  font-size: 11.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 600;
+  margin: 0 0 6px;
 }
 .target-card h3 {
   font-family: var(--font-display);
@@ -493,6 +514,21 @@ a.btn.btn-primary:visited {
   font-size: 15.5px;
   line-height: 1.65;
 }
+.target-card .card-price {
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 14.5px;
+}
+.target-card .card-price strong {
+  color: var(--orange-deep);
+  font-weight: 700;
+}
+
+/* Sotto i 280px diventa 1 colonna piena, sopra fa auto-fit standard.
+   Su desktop largo si spalmano 4 in linea grazie al minmax. */
+.target-grid { --card-min: 240px; }
 
 /* ============================================================
    11. STATS (warm dark)
@@ -1042,6 +1078,146 @@ footer.site-footer a:hover { color: var(--orange); }
    25. UTILITIES (used in inline styles in HTML)
    ============================================================ */
 .lead { font-size: 17px; line-height: 1.7; color: var(--ink-soft); }
+
+/* ============================================================
+   26. SOTTO-PAGINE — classi specifiche
+   Usate da metodo, scuole, percorsi, katacamp.
+   Stesso design system, allineate ai token.
+   ============================================================ */
+
+/* —— Background warm per sezione "valori/principi" —— */
+.valori-bg { background: var(--cream); }
+
+/* —— Principi grid: 3 colonne fisse (stessa logica di unicita) —— */
+.principi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+@media (max-width: 900px) {
+  .principi-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .principi-grid { grid-template-columns: 1fr; }
+}
+
+.principio-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--pad-card);
+  transition: transform var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease), border-color var(--t-base) var(--ease);
+}
+.principio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--orange);
+}
+.principio-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+  color: var(--ink);
+  line-height: 1.25;
+}
+.principio-card p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* —— Icona principio: dimensioni FISSE (importante per evitare SVG giganti) —— */
+.principio-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #fff1e2 0%, #ffd9b5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-3);
+  color: var(--orange-deep);
+  flex-shrink: 0;
+}
+.principio-icon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+/* —— Block "scopri kataclimb" (in fondo alla pagina Metodo) —— */
+.kataclimb-link-block {
+  margin-top: var(--space-5);
+  padding: var(--pad-card);
+  background: var(--cream);
+  border-left: 4px solid var(--orange);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+/* —— Video embed wrapper (testimonianze sotto-pagine) —— */
+.video-embed-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin-top: var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--night);
+  box-shadow: var(--shadow-md);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.video-embed-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: var(--radius-md);
+}
+
+/* —— Pagina progetti scolastici —— */
+.progetti-block {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--pad-card-lg);
+  max-width: 880px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.zone-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 600px) {
+  .zone-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.zona-card {
+  padding: var(--space-3);
+  text-align: center;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  transition: all var(--t-base) var(--ease);
+}
+.zona-card:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+  transform: translateY(-2px);
+}
 
 /* ============================================================
    END
