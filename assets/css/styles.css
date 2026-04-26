@@ -1,100 +1,217 @@
-/* ============================================
-   Accademia ArrampiKata RCC — CSS pulito
+/* ============================================================
+   Accademia ArrampiKata RCC — styles.css
+   Design system v2 — warm & human edition
    Marco Nescatelli, aprile 2026
-   ============================================ */
+   ============================================================ */
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
+/* ============================================================
+   1. DESIGN TOKENS
+   ============================================================ */
 :root {
-  --orange: #ff6b1a;
-  --orange-dark: #e85a0e;
-  --black: #0a0a0a;
-  --gray-900: #1a1a1a;
-  --gray-700: #404040;
-  --gray-500: #737373;
-  --gray-300: #d4d4d4;
-  --gray-100: #f5f5f5;
-  --gray-50: #fafafa;
-  --white: #ffffff;
+  /* —— Color: warm earth palette —— */
+  --ink:           #1c1917;   /* testo principale (warm black) */
+  --ink-soft:      #44403c;   /* testo secondario             */
+  --ink-muted:     #78716c;   /* testo terziario / didascalie */
+  --line:          #e7e2d8;   /* bordi sottili, warm          */
+  --line-strong:   #c9c2b4;   /* bordi più definiti           */
 
+  --paper:         #ffffff;   /* sfondo principale (carta)    */
+  --cream:         #faf6ee;   /* sfondo alternato warm        */
+  --cream-deep:    #f3ebd8;   /* sfondo accentuato (rare)     */
+
+  --orange:        #ff6b1a;   /* primario brand               */
+  --orange-deep:   #d8470c;   /* hover / contrasto            */
+  --terracotta:    #b9521f;   /* accent caldo secondario      */
+  --ember:         #ffae5e;   /* accent chiaro / highlight    */
+
+  --night:         #1a1614;   /* sfondi scuri (CTA, stats)    */
+  --night-soft:    #2a2522;   /* sfondi scuri secondari       */
+
+  /* —— Spacing scale —— */
+  --space-1:  8px;
+  --space-2:  16px;
+  --space-3:  24px;
+  --space-4:  32px;
+  --space-5:  48px;
+  --space-6:  64px;
+  --space-7:  96px;
+  --space-8:  128px;
+
+  /* —— Section padding (vertical rhythm) —— */
+  --section-y:    clamp(72px, 9vw, 120px);
+  --section-y-lg: clamp(96px, 11vw, 160px);
+
+  /* —— Layout —— */
+  --w-narrow: 1180px;
+  --w-text:   720px;
+  --pad-x:    clamp(20px, 4vw, 48px);
+
+  /* —— Radii —— */
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-pill: 999px;
+
+  /* —— Card padding (single source of truth) —— */
+  --pad-card:    clamp(28px, 3vw, 36px);
+  --pad-card-lg: clamp(40px, 5vw, 56px);
+
+  /* —— Card grid —— */
+  --card-min: 280px;
+  --card-gap: var(--space-3);
+
+  /* —— Shadows: warm tinted —— */
+  --shadow-sm: 0 1px 2px rgba(28, 25, 23, 0.05);
+  --shadow-md: 0 8px 24px rgba(28, 25, 23, 0.08);
+  --shadow-lg: 0 20px 48px rgba(28, 25, 23, 0.12);
+  --shadow-warm: 0 12px 32px rgba(184, 75, 30, 0.18);
+
+  /* —— Typography —— */
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
   --font-display: "Playfair Display", Georgia, serif;
 
-  --w-narrow: 1180px;
-  --pad-x: clamp(20px, 4vw, 48px);
+  /* —— Motion —— */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast: 150ms;
+  --t-base: 250ms;
+  --t-slow: 400ms;
 }
 
-html { scroll-behavior: smooth; }
+/* ============================================================
+   2. RESET + BASE
+   ============================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.6;
-  color: var(--gray-900);
-  background: var(--white);
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-img { max-width: 100%; height: auto; display: block; }
-a { color: inherit; text-decoration: none; }
+img, svg, video { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; transition: color var(--t-fast) var(--ease); }
+ul { list-style: none; }
+button { font: inherit; cursor: pointer; background: none; border: 0; }
 
-/* ------- HEADER / NAV ------- */
+/* ============================================================
+   3. LAYOUT PRIMITIVES
+   ============================================================ */
+section.block {
+  padding: var(--section-y) var(--pad-x);
+  position: relative;
+}
+.block-inner {
+  max-width: var(--w-narrow);
+  margin: 0 auto;
+}
+
+/* —— Section header (eyebrow + title + lead) —— */
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: var(--space-2);
+}
+h2.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4.6vw, 54px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: var(--space-3);
+  max-width: 24ch;
+}
+p.section-lead {
+  font-size: clamp(17px, 1.6vw, 19px);
+  color: var(--ink-soft);
+  line-height: 1.6;
+  max-width: var(--w-text);
+  margin-bottom: var(--space-5);
+}
+
+/* —— Section background variants (alternating rhythm) —— */
+.testimonianze-bg,
+.fondamenta-bg,
+.percorso-bg,
+.katacamp-bg,
+.contatti-bg { background: var(--cream); }
+
+/* ============================================================
+   4. HEADER / NAV
+   ============================================================ */
 header.site-nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--gray-300);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
 }
 .nav-wrap {
   max-width: var(--w-narrow);
   margin: 0 auto;
-  padding: 16px var(--pad-x);
+  padding: 18px var(--pad-x);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--space-2);
 }
 .logo {
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: -0.02em;
+  color: var(--ink);
 }
 .nav-links {
   display: flex;
   gap: clamp(12px, 2vw, 28px);
   align-items: center;
-  list-style: none;
 }
 .nav-links a {
   font-size: 14px;
   font-weight: 500;
-  color: var(--gray-700);
+  color: var(--ink-soft);
   white-space: nowrap;
-  transition: color 0.15s;
 }
-.nav-links a:hover { color: var(--orange); }
-.nav-links a.active { color: var(--gray-900); }
+.nav-links a:hover { color: var(--orange-deep); }
+.nav-links a.active { color: var(--ink); }
 .nav-links a.cta {
   background: var(--orange);
-  color: var(--white);
-  padding: 10px 20px;
-  border-radius: 4px;
+  color: var(--paper);
+  padding: 11px 22px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  transition: background var(--t-base) var(--ease), transform var(--t-base) var(--ease);
 }
-.nav-links a.cta:hover { background: var(--orange-dark); color: var(--white); }
+.nav-links a.cta:hover {
+  background: var(--orange-deep);
+  color: var(--paper);
+  transform: translateY(-1px);
+}
 @media (max-width: 600px) {
-  .nav-links a { font-size: 12px; }
-  .nav-links a.cta { padding: 8px 14px; }
+  .nav-links a { font-size: 13px; }
+  .nav-links a.cta { padding: 9px 16px; }
 }
 
-/* ------- HERO ------- */
+/* ============================================================
+   5. HERO
+   ============================================================ */
 .hero {
   position: relative;
-  min-height: 90vh;
+  min-height: 88vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--white);
+  color: var(--paper);
   overflow: hidden;
 }
 .hero::before {
@@ -105,803 +222,740 @@ header.site-nav {
   background-size: cover;
   background-position: center;
   z-index: 0;
+  filter: saturate(1.05);
 }
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+  background:
+    radial-gradient(ellipse at center, rgba(28,22,20,0.35) 0%, rgba(28,22,20,0.78) 100%),
+    linear-gradient(180deg, rgba(28,22,20,0.25) 0%, rgba(28,22,20,0.55) 100%);
   z-index: 1;
 }
 .hero-inner {
   position: relative;
   z-index: 2;
   max-width: var(--w-narrow);
-  padding: 80px var(--pad-x);
+  padding: var(--space-7) var(--pad-x);
 }
 .hero-eyebrow {
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  margin-bottom: 24px;
-  opacity: 0.9;
+  color: var(--ember);
+  font-weight: 600;
+  margin-bottom: var(--space-3);
 }
-.hero h1 {
+h1, .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(40px, 7vw, 88px);
+  font-size: clamp(44px, 7vw, 84px);
   font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin-bottom: var(--space-3);
 }
-.hero p.hero-sub {
-  font-size: clamp(16px, 2vw, 22px);
+.hero-sub {
+  font-size: clamp(17px, 2vw, 22px);
   font-weight: 300;
-  opacity: 0.95;
-  margin-bottom: 40px;
   line-height: 1.5;
+  margin-bottom: var(--space-5);
+  opacity: 0.92;
+  max-width: 40ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 .hero-ctas {
   display: flex;
-  gap: 16px;
+  gap: var(--space-2);
   justify-content: center;
   flex-wrap: wrap;
 }
+
+/* ============================================================
+   6. BUTTONS
+   ============================================================ */
 .btn {
-  display: inline-block;
-  padding: 16px 32px;
-  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 30px;
+  font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border-radius: 4px;
-  transition: all 0.15s;
-  cursor: pointer;
+  letter-spacing: 0.01em;
+  border-radius: var(--radius-pill);
+  transition: all var(--t-base) var(--ease);
   border: 2px solid transparent;
+  white-space: nowrap;
 }
-.btn-primary {
+.btn-primary,
+a.btn.btn-primary,
+a.btn.btn-primary:link,
+a.btn.btn-primary:visited {
   background: var(--orange);
-  color: var(--white);
+  color: var(--paper) !important;
+  border-color: var(--orange);
 }
-.btn-primary:hover { background: var(--orange-dark); }
+.btn-primary:hover {
+  background: var(--orange-deep);
+  border-color: var(--orange-deep);
+  color: var(--paper) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-warm);
+}
 .btn-outline {
   background: transparent;
-  color: var(--white);
-  border-color: rgba(255,255,255,0.6);
+  color: var(--paper);
+  border-color: rgba(255, 255, 255, 0.6);
 }
-.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--paper);
+  color: var(--paper);
+  transform: translateY(-2px);
+}
 
-/* ------- SECTIONS GENERIC ------- */
-section.block {
-  padding: clamp(60px, 10vw, 120px) var(--pad-x);
-}
-.block-inner {
-  max-width: var(--w-narrow);
-  margin: 0 auto;
-}
-.eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--orange);
+.btn-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--orange-deep);
   font-weight: 600;
-  margin-bottom: 16px;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  transition: gap var(--t-base) var(--ease), color var(--t-base) var(--ease);
 }
-h2.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(32px, 5vw, 56px);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px;
+.btn-link-arrow::after {
+  content: "→";
+  transition: transform var(--t-base) var(--ease);
 }
-p.section-lead {
-  font-size: clamp(16px, 1.6vw, 19px);
-  color: var(--gray-700);
-  max-width: 700px;
-  line-height: 1.6;
-  margin-bottom: 48px;
+.btn-link-arrow:hover {
+  color: var(--terracotta);
+}
+.btn-link-arrow:hover::after { transform: translateX(4px); }
+
+/* ============================================================
+   7. CARD (unified base + variants)
+   All card-like blocks share these tokens for visual consistency.
+   ============================================================ */
+.target-card,
+.team-card,
+.unicita-card,
+.testi-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease), border-color var(--t-base) var(--ease);
+}
+.target-card:hover,
+.team-card:hover,
+.unicita-card:hover,
+.testi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--line-strong);
 }
 
-/* ------- VALORI (6-up grid) ------- */
+/* —— Standard grid wrapper (auto-fit, single source) —— */
+.target-grid,
+.team-grid,
+.unicita-grid,
+.testi-grid,
 .valori-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
-  margin-top: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-min), 1fr));
+  gap: var(--card-gap);
+  margin-top: var(--space-5);
+}
+
+/* ============================================================
+   8. VALORI (light, no card chrome)
+   ============================================================ */
+.valori-grid {
+  --card-min: 240px;
+  gap: var(--space-5) var(--space-4);
 }
 .valore {
-  padding: 8px 0;
+  padding: 0;
 }
 .valore h3 {
   font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+  color: var(--ink);
+  position: relative;
+  padding-left: var(--space-3);
+}
+.valore h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  background: var(--orange);
+  border-radius: var(--radius-pill);
 }
 .valore p {
-  color: var(--gray-500);
-  font-size: 15px;
-  line-height: 1.6;
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  line-height: 1.65;
+  padding-left: var(--space-3);
 }
 
-/* ------- PERCORSO 5 STEPS ------- */
-.percorso-bg { background: var(--gray-50); }
+/* ============================================================
+   9. PERCORSO 5 STEPS
+   ============================================================ */
 .steps {
   display: grid;
-  gap: 32px;
-  margin-top: 48px;
+  gap: 0;
+  margin-top: var(--space-5);
 }
 .step {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 32px;
+  gap: var(--space-4);
   align-items: start;
-  padding: 24px 0;
-  border-top: 1px solid var(--gray-300);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--line);
 }
-.step:first-child { border-top: none; }
+.step:first-child { border-top: none; padding-top: 0; }
 .step-num {
   font-family: var(--font-display);
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: clamp(44px, 5vw, 68px);
   font-weight: 700;
-  color: var(--gray-300);
+  color: var(--orange);
+  opacity: 0.85;
   line-height: 1;
-  min-width: 80px;
+  min-width: 90px;
+  font-style: italic;
 }
 .step-body h3 {
   font-family: var(--font-display);
-  font-size: clamp(22px, 2.5vw, 30px);
-  font-weight: 600;
-  margin-bottom: 8px;
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+  color: var(--ink);
+  line-height: 1.2;
 }
 .step-body p {
-  color: var(--gray-500);
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-/* ------- PERCORSI ADULTI/BAMBINI/RAGAZZI ------- */
-.target-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 48px;
-}
-.target-card {
-  border: 1px solid var(--gray-300);
-  background: var(--white);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
+/* ============================================================
+   10. TARGET — Adulti / Bambini / Ragazzi
+   ============================================================ */
+.target-card { display: flex; flex-direction: column; }
 .target-card img {
   width: 100%;
-  height: 240px;
+  height: 280px;
   object-fit: cover;
+  transition: transform var(--t-slow) var(--ease);
 }
+.target-card:hover img { transform: scale(1.04); }
 .target-card-body {
-  padding: 28px 24px;
+  padding: var(--pad-card);
   flex: 1;
 }
 .target-card h3 {
   font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 12px;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+  color: var(--ink);
 }
 .target-card p {
-  color: var(--gray-500);
-  font-size: 15px;
-  line-height: 1.6;
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  line-height: 1.65;
 }
 
-/* ------- STATS ------- */
+/* ============================================================
+   11. STATS (warm dark)
+   ============================================================ */
 .stats {
-  background: var(--black);
-  color: var(--white);
+  background: var(--night);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+.stats::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(255,107,26,0.12), transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(255,174,94,0.08), transparent 50%);
+  pointer-events: none;
 }
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 32px;
+  gap: var(--space-5) var(--space-4);
   text-align: center;
+  position: relative;
 }
 .stat .num {
   font-family: var(--font-display);
-  font-size: clamp(48px, 6vw, 80px);
+  font-size: clamp(56px, 7vw, 88px);
   font-weight: 700;
-  color: var(--orange);
+  color: var(--ember);
   line-height: 1;
-  margin-bottom: 12px;
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.02em;
 }
 .stat .label {
   font-size: 12px;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
 }
 
-/* ------- KATACAMP ------- */
-.katacamp-bg { background: var(--gray-50); }
+/* ============================================================
+   12. KATACAMP (destinazioni)
+   ============================================================ */
 .katacamp-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: var(--space-5);
   align-items: start;
-}
-@media (max-width: 768px) {
-  .katacamp-grid { grid-template-columns: 1fr; }
 }
 .dest-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px 24px;
-  list-style: none;
+  gap: 0;
+  margin-top: var(--space-3);
 }
 .dest-list li {
-  padding: 12px 0;
-  border-bottom: 1px solid var(--gray-300);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-2);
+  font-size: 16px;
+  color: var(--ink-soft);
 }
 .dest-list li::before {
-  content: "📍";
-  font-size: 14px;
-}
-
-/* ------- FONDATORE ------- */
-.fondatore-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
-}
-@media (max-width: 900px) {
-  .fondatore-grid { grid-template-columns: 1fr; gap: 32px; }
-}
-.fondatore-bio p {
-  margin-bottom: 16px;
-  color: var(--gray-700);
-  line-height: 1.7;
-}
-.fondatore-bio a { color: var(--orange); text-decoration: underline; }
-.libro-card {
-  text-align: center;
-}
-.libro-card img {
-  max-width: 320px;
-  margin: 0 auto 24px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-}
-
-/* ------- FONDAMENTA ------- */
-.fondamenta-bg { background: var(--gray-50); }
-.fondamenta-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
+  content: "▲";
+  font-size: 11px;
+  color: var(--orange);
 }
 @media (max-width: 768px) {
-  .fondamenta-grid { grid-template-columns: 1fr; }
+  .katacamp-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   13. FONDATORE (Marco)
+   ============================================================ */
+.fondatore-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-6);
+  align-items: start;
+  margin-top: var(--space-5);
+}
+.fondatore-bio p {
+  margin-bottom: var(--space-2);
+  color: var(--ink-soft);
+  line-height: 1.75;
+  font-size: 16.5px;
+}
+.fondatore-bio strong { color: var(--ink); font-weight: 600; }
+.fondatore-bio a { color: var(--orange-deep); text-decoration: underline; text-underline-offset: 3px; }
+.libro-card {
+  text-align: center;
+  position: sticky;
+  top: 100px;
+}
+.libro-card img {
+  max-width: 280px;
+  margin: 0 auto var(--space-3);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-sm);
+}
+@media (max-width: 900px) {
+  .fondatore-grid { grid-template-columns: 1fr; gap: var(--space-5); }
+  .libro-card { position: static; }
+}
+
+/* ============================================================
+   14. FONDAMENTA (Giuseppe & Marco)
+   ============================================================ */
+.fondamenta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: var(--space-6);
+  align-items: center;
+  margin-top: var(--space-5);
 }
 .fondamenta-img img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
 }
 .fondamenta-text p {
-  margin-bottom: 16px;
-  color: var(--gray-700);
-  line-height: 1.7;
+  margin-bottom: var(--space-2);
+  color: var(--ink-soft);
+  line-height: 1.75;
+  font-size: 16.5px;
+}
+.fondamenta-text p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  font-size: 4em;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  margin: 6px 10px 0 0;
+  color: var(--orange);
+}
+@media (max-width: 768px) {
+  .fondamenta-grid { grid-template-columns: 1fr; gap: var(--space-4); }
 }
 
-/* ------- TEAM ------- */
+/* ============================================================
+   15. TEAM (istruttori)
+   ============================================================ */
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-  margin-top: 48px;
+  --card-min: 240px;
+}
+.team-grid.team-grid-2x2 {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 760px;
+  margin: var(--space-5) auto 0;
+  gap: var(--space-3);
+}
+@media (max-width: 600px) {
+  .team-grid.team-grid-2x2 { grid-template-columns: 1fr; }
 }
 .team-card {
-  border: 1px solid var(--gray-300);
-  padding: 32px 24px;
-  background: var(--white);
+  text-align: center;
+  padding: var(--pad-card-lg) var(--pad-card);
 }
 .team-photo {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 16px;
-  background: var(--gray-100);
+  margin: 0 auto var(--space-3);
+  background: var(--cream);
+  border: 3px solid var(--paper);
+  box-shadow: var(--shadow-md);
 }
-.team-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.team-photo.team-photo-large {
+  width: 160px;
+  height: 160px;
+  margin-bottom: var(--space-3);
 }
+.team-photo img { width: 100%; height: 100%; object-fit: cover; }
 .team-card h3 {
   font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 4px;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: var(--ink);
 }
 .team-card .role {
-  font-size: 13px;
-  color: var(--gray-500);
-  letter-spacing: 0.05em;
-}
-
-/* ------- TESTIMONIANZE ------- */
-.testimonianze-bg { background: var(--gray-50); }
-.testimonianze-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 48px;
-}
-.testimonianza {
-  border: 1px solid var(--gray-300);
-  background: var(--white);
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-}
-.testimonianza p.quote {
-  font-style: italic;
-  color: var(--gray-700);
-  line-height: 1.6;
-  margin-bottom: 24px;
-  flex: 1;
-}
-.testimonianza .meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-}
-.testimonianza .author { color: var(--gray-700); }
-.testimonianza .tag {
-  color: var(--gray-500);
-  letter-spacing: 0.15em;
+  font-size: 12px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-size: 11px;
+  color: var(--terracotta);
+  font-weight: 600;
 }
 
-/* ------- ISTRUTTORI CTA ------- */
-.istruttori-block {
-  background: var(--gray-100);
-  border: 1px solid var(--gray-300);
-  padding: clamp(40px, 6vw, 64px) var(--pad-x);
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
+/* ============================================================
+   16. UNICITÀ (sei pilastri)
+   ============================================================ */
+.unicita-grid {
+  --card-min: 280px;
+  margin-top: var(--space-5);
 }
-.istruttori-block .eyebrow { color: var(--orange); }
+.unicita-card {
+  padding: var(--pad-card);
+  background: var(--paper);
+}
+.unicita-card:hover {
+  border-color: var(--orange);
+  box-shadow: var(--shadow-warm);
+}
+.unicita-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #fff1e2 0%, #ffd9b5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-3);
+  color: var(--orange-deep);
+}
+.unicita-icon svg { width: 28px; height: 28px; }
+.unicita-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+  color: var(--ink);
+  line-height: 1.25;
+}
+.unicita-card p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.65;
+}
+.unicita-card p strong { color: var(--ink); font-weight: 600; }
+
+/* ============================================================
+   17. TESTIMONIANZE (4 video card)
+   ============================================================ */
+.testi-grid {
+  --card-min: 380px;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 760px) {
+  .testi-grid { grid-template-columns: 1fr; }
+}
+.testi-video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--night);
+}
+.testi-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.testi-info {
+  padding: var(--space-3) var(--pad-card) var(--pad-card);
+}
+.testi-info h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.testi-info p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ============================================================
+   18. ISTRUTTORI CTA
+   ============================================================ */
+.istruttori-block {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--cream-deep) 100%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: var(--pad-card-lg);
+  text-align: center;
+  max-width: 880px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-md);
+}
+.istruttori-block .eyebrow { color: var(--terracotta); }
 .istruttori-block h3 {
   font-family: var(--font-display);
-  font-size: clamp(26px, 3vw, 36px);
-  font-weight: 600;
-  margin-bottom: 16px;
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+  color: var(--ink);
+  line-height: 1.15;
 }
 .istruttori-block p.lead {
-  color: var(--gray-700);
-  margin-bottom: 32px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  color: var(--ink-soft);
+  margin: 0 auto var(--space-4);
+  max-width: 640px;
+  font-size: 16.5px;
+  line-height: 1.65;
 }
 .istruttori-list {
   text-align: left;
-  max-width: 700px;
-  margin: 0 auto 32px;
-  list-style: none;
+  max-width: 680px;
+  margin: 0 auto var(--space-4);
+  display: grid;
+  gap: var(--space-2);
 }
 .istruttori-list li {
-  padding: 12px 0;
   display: grid;
-  grid-template-columns: 24px 1fr;
-  gap: 12px;
+  grid-template-columns: 28px 1fr;
+  gap: var(--space-2);
   align-items: start;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
 }
 .istruttori-list li::before {
   content: "✓";
   color: var(--orange);
   font-weight: 700;
   font-size: 18px;
+  line-height: 1.4;
 }
-.istruttori-list strong { color: var(--gray-900); }
+.istruttori-list strong { color: var(--ink); font-weight: 600; }
 
-/* ------- CTA SECTION ------- */
+/* ============================================================
+   19. CTA SECTION (warm dark with photo)
+   ============================================================ */
 .cta-section {
-  background: var(--black);
-  color: var(--white);
+  background-image:
+    linear-gradient(135deg, rgba(26, 22, 20, 0.78) 0%, rgba(184, 82, 31, 0.55) 100%),
+    url('/assets/img/img-accademia-gruppo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--paper);
   text-align: center;
 }
-.cta-section h2 { color: var(--white); }
-.cta-section p { color: rgba(255,255,255,0.8); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.cta-section h2,
+.cta-section h2.section-title { color: var(--paper); margin-left: auto; margin-right: auto; }
+.cta-section p {
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 auto var(--space-4);
+  max-width: 580px;
+  font-size: 17px;
+}
 
-/* ------- CONTATTI ------- */
-.contatti-bg { background: var(--gray-50); }
+/* ============================================================
+   20. CONTATTI
+   ============================================================ */
 .contatti-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
 }
 @media (max-width: 768px) { .contatti-grid { grid-template-columns: 1fr; } }
 .contatto-block h3 {
   font-family: var(--font-display);
-  font-size: 22px;
-  margin-bottom: 16px;
-}
-.contatto-block p { margin-bottom: 8px; color: var(--gray-700); }
-.contatto-block a { color: var(--orange); }
-
-/* ------- FOOTER ------- */
-footer.site-footer {
-  background: var(--black);
-  color: var(--white);
-  padding: 48px var(--pad-x) 32px;
-  text-align: center;
-}
-footer.site-footer p {
-  font-size: 13px;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 8px;
-}
-footer.site-footer a { color: var(--orange); }
-
-/* ------- WHATSAPP FLOATING ------- */
-.wa-float {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 56px;
-  height: 56px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  z-index: 50;
-  transition: transform 0.15s;
-}
-.wa-float:hover { transform: scale(1.1); }
-.wa-float svg { width: 28px; height: 28px; fill: white; }
-
-/* === MODIFICHE BATCH === */
-
-/* Team grid 2x2 con foto grandi */
-.team-grid.team-grid-2x2 {
-  grid-template-columns: repeat(2, 1fr);
-  max-width: 800px;
-  margin: 48px auto 0;
-  gap: 32px;
-}
-@media (max-width: 600px) {
-  .team-grid.team-grid-2x2 { grid-template-columns: 1fr; }
-}
-.team-photo.team-photo-large {
-  width: 160px;
-  height: 160px;
-  margin-bottom: 24px;
-}
-.team-card {
-  text-align: center;
-  padding: 40px 32px;
-}
-.team-card .team-photo {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Sezione VALORI con sfondo immagine palestra trasparente */
-section.block:nth-of-type(2) {
-  position: relative;
-  background-image: linear-gradient(rgba(255,255,255,0.96), rgba(255,255,255,0.96)), url('/assets/img/img-0dc3ab3407.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-/* Sezione PERCORSO 5 step con sfondo */
-.percorso-bg {
-  background-image: linear-gradient(rgba(250,250,250,0.94), rgba(250,250,250,0.94)), url('/assets/img/img-accademia-gruppo.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-/* Sezione KATACAMP con sfondo natura */
-.katacamp-bg {
-  background-image: linear-gradient(rgba(250,250,250,0.94), rgba(250,250,250,0.94)), url('/assets/img/img-katacamp-real.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-/* CTA Prenota: sfondo palestra forte */
-.cta-section {
-  background-image: linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.85)), url('/assets/img/img-accademia-gruppo.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-/* Fondamenta: sfondo leggero */
-.fondamenta-bg {
-  background-image: linear-gradient(rgba(250,250,250,0.97), rgba(250,250,250,0.97)), url('/assets/img/img-0dc3ab3407.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-
-/* === PAGE HERO (per pagine secondarie) === */
-.page-hero {
-  padding: clamp(80px, 10vw, 140px) var(--pad-x) clamp(40px, 6vw, 80px);
-  background-image: linear-gradient(rgba(10,10,10,0.55), rgba(10,10,10,0.75)), url('/assets/img/img-accademia-gruppo.jpg');
-  background-size: cover;
-  background-position: center;
-  color: var(--white);
-  text-align: center;
-}
-.page-hero .eyebrow { color: var(--orange); }
-.page-hero .page-title {
-  font-family: var(--font-display);
-  font-size: clamp(36px, 6vw, 64px);
+  font-size: 24px;
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin: 16px 0;
+  margin-bottom: var(--space-2);
+  color: var(--ink);
 }
-.page-hero .page-sub {
-  font-size: clamp(16px, 2vw, 22px);
-  font-weight: 300;
-  opacity: 0.9;
-}
+.contatto-block p { margin-bottom: 6px; color: var(--ink-soft); font-size: 16px; line-height: 1.6; }
+.contatto-block a { color: var(--orange-deep); font-weight: 500; }
+.contatto-block a:hover { color: var(--terracotta); }
 
-/* === GALLERIA FOTO === */
+/* ============================================================
+   21. GALLERY (asymmetric, generous)
+   ============================================================ */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 220px;
-  gap: 16px;
-  margin-top: 48px;
+  grid-auto-rows: 240px;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
 }
 .gallery-item {
   overflow: hidden;
-  border-radius: 4px;
-  background: var(--gray-100);
+  border-radius: var(--radius-md);
+  background: var(--cream);
+  position: relative;
 }
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform var(--t-slow) var(--ease);
 }
-.gallery-item:hover img {
-  transform: scale(1.05);
-}
-.gallery-item.gallery-item-tall {
-  grid-row: span 2;
-}
-.gallery-item.gallery-item-wide {
-  grid-column: span 2;
-}
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item-tall { grid-row: span 2; }
+.gallery-item-wide { grid-column: span 2; }
 @media (max-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 180px;
-  }
-  .gallery-item.gallery-item-tall { grid-row: span 1; }
-  .gallery-item.gallery-item-wide { grid-column: span 2; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+  .gallery-item-tall { grid-row: span 1; }
 }
 @media (max-width: 480px) {
-  .gallery-grid { grid-template-columns: 1fr; }
-  .gallery-item.gallery-item-wide { grid-column: span 1; }
+  .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+  .gallery-item-wide { grid-column: span 1; }
 }
 
-/* === FIX BOTTONI === */
-a.btn.btn-primary,
-a.btn.btn-primary:link,
-a.btn.btn-primary:visited {
-  color: #ffffff !important;
-  background: var(--orange) !important;
+/* ============================================================
+   22. FOOTER
+   ============================================================ */
+footer.site-footer {
+  background: var(--night);
+  color: var(--paper);
+  padding: var(--space-5) var(--pad-x) var(--space-4);
+  text-align: center;
 }
-a.btn.btn-primary:hover {
-  background: var(--orange-dark) !important;
-  color: #ffffff !important;
-}
-
-/* === SEZIONE PRINCIPI / VALORI CON ICONE === */
-.valori-bg {
-  background: var(--gray-50);
-}
-.principi-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-top: 48px;
-}
-@media (max-width: 900px) {
-  .principi-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .principi-grid { grid-template-columns: 1fr; }
-}
-.principio-card {
-  background: var(--white);
-  padding: 36px 28px;
-  border: 1px solid var(--gray-300);
-  border-radius: 4px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.principio-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
-}
-.principio-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #fff5ed 0%, #ffe5d0 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  color: var(--orange);
-}
-.principio-icon svg {
-  width: 28px;
-  height: 28px;
-}
-.principio-card h3 {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: var(--gray-900);
-}
-.principio-card p {
-  color: var(--gray-500);
-  font-size: 15px;
+footer.site-footer p {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 6px;
   line-height: 1.6;
 }
+footer.site-footer p:first-child { color: rgba(255, 255, 255, 0.85); font-size: 15px; margin-bottom: var(--space-2); }
+footer.site-footer a { color: var(--ember); }
+footer.site-footer a:hover { color: var(--orange); }
 
-/* === SEZIONE COSA CI RENDE UNICI === */
-.unicita-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 48px;
-}
-@media (max-width: 900px) {
-  .unicita-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .unicita-grid { grid-template-columns: 1fr; }
-}
-.unicita-card {
-  background: var(--white);
-  padding: 36px 28px;
-  border: 1px solid var(--gray-300);
-  border-radius: 4px;
-  transition: all 0.2s;
-}
-.unicita-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(255,107,26,0.12);
-  border-color: var(--orange);
-}
-.unicita-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
-  background: var(--gray-900);
+/* ============================================================
+   23. WHATSAPP FLOATING
+   ============================================================ */
+.wa-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
-  color: var(--orange);
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.4);
+  z-index: 50;
+  transition: transform var(--t-base) var(--ease);
 }
-.unicita-icon svg {
-  width: 32px;
-  height: 32px;
-}
-.unicita-card h3 {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-.unicita-card p {
-  color: var(--gray-500);
-  font-size: 14px;
-  line-height: 1.65;
-}
-.unicita-card p strong {
-  color: var(--gray-900);
-  font-weight: 600;
-}
+.wa-float:hover { transform: scale(1.08); }
+.wa-float svg { width: 30px; height: 30px; fill: white; }
 
-/* === PAGINA PROGETTI SCOLASTICI === */
-.progetti-block {
-  background: var(--white);
-  border: 1px solid var(--gray-300);
-  border-radius: 4px;
-  padding: clamp(32px, 5vw, 56px);
-  max-width: 900px;
-  margin: 0 auto;
-}
-.zone-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 48px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media (max-width: 600px) {
-  .zone-grid { grid-template-columns: repeat(2, 1fr); }
-}
-.zona-card {
-  padding: 24px;
+/* ============================================================
+   24. PAGE HERO (per pagine secondarie)
+   ============================================================ */
+.page-hero {
+  padding: clamp(80px, 10vw, 140px) var(--pad-x) clamp(40px, 6vw, 80px);
+  background-image:
+    linear-gradient(180deg, rgba(26, 22, 20, 0.55) 0%, rgba(26, 22, 20, 0.78) 100%),
+    url('/assets/img/img-accademia-gruppo.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--paper);
   text-align: center;
-  border: 1px solid var(--gray-300);
-  background: var(--white);
-  border-radius: 4px;
-  font-size: 15px;
-  letter-spacing: 0.05em;
-  transition: all 0.2s;
 }
-.zona-card:hover {
-  border-color: var(--orange);
-  color: var(--orange);
+.page-hero .eyebrow { color: var(--ember); }
+.page-hero .page-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 68px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: var(--space-2) 0;
+  color: var(--paper);
 }
-
-
-/* === LINK BLOCK KATACLIMB === */
-.kataclimb-link-block {
-  margin-top: 64px;
-  padding: 32px;
-  background: var(--gray-50);
-  border-left: 4px solid var(--orange);
-  border-radius: 0 4px 4px 0;
-}
-.btn-link-arrow {
-  display: inline-block;
-  color: var(--orange);
-  font-weight: 600;
-  font-size: 16px;
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  transition: transform 0.2s;
-}
-.btn-link-arrow:hover {
-  color: var(--orange-dark);
-  transform: translateX(4px);
+.page-hero .page-sub {
+  font-size: clamp(17px, 2vw, 22px);
+  font-weight: 300;
+  opacity: 0.92;
 }
 
-/* === VIDEO EMBED RESPONSIVE === */
-.video-embed-wrap {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  overflow: hidden;
-  margin-top: 48px;
-  border-radius: 8px;
-  background: var(--gray-900);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.video-embed-wrap iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: 8px;
-}
+/* ============================================================
+   25. UTILITIES (used in inline styles in HTML)
+   ============================================================ */
+.lead { font-size: 17px; line-height: 1.7; color: var(--ink-soft); }
+
+/* ============================================================
+   END
+   ============================================================ */
