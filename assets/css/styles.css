@@ -1222,3 +1222,40 @@ footer.site-footer a:hover { color: var(--orange); }
 /* ============================================================
    END
    ============================================================ */
+
+/* ============================================================
+   FIX MENU MOBILE — voci a capo, leggibili e tutte visibili
+   (logo sopra, voci di menu centrate sotto, niente più
+   overflow orizzontale che nascondeva Eventi / Contatti / Prenota)
+   ============================================================ */
+@media (max-width: 860px) {
+  .nav-wrap {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 12px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .nav-wrap > nav {
+    flex-basis: 100%;
+    width: 100%;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 18px;
+  }
+  .nav-links a {
+    font-size: 14px;
+    padding: 2px 2px;
+  }
+  .nav-links a.cta {
+    padding: 9px 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links { gap: 10px 14px; }
+  .nav-links a { font-size: 13px; }
+  .nav-links a.cta { padding: 8px 16px; }
+}
