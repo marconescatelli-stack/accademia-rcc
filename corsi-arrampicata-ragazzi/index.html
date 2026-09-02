@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<!-- KC-BUILD: sito-percorsi v1.2 · 2026-08-31 · SEZIONE CORSO GIOVANI KATACLIMB 18-24: nuovo blocco #corso-giovani tra Percorso Corda e Bambini/Ragazzi (venerdi' 18-19, Sala con Monitor, percorso Open->Advance->manovre corda, passaggio ai gruppi avanzati su Kata certificati) + CTA 'Prenota la Prima Lezione Giovani 20€' -> kataclimb.com/inizia-giovani.html; prezzo giovani aggiunto nella CTA finale e in meta description. CUMULA v1.1 · 2026-07-17 · voce nav "Libro" dopo Metodo → /libro-scalare-impossibile/. CUMULA v1.0 (riga sotto). -->
+<!-- KC-BUILD: sito-percorsi v1.0 · 2026-07-15 · voce nav "Calendario Accademia" dopo Percorsi → kataclimb.com/orari.html (Cantiere A2, porta 2/6). Nessun'altra modifica. Base: pagina live 15 lug. -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corsi di Arrampicata per Ragazzi 12–17 a Roma: prezzi e formule 2026/27 | Accademia RCC</title>
+<meta name="description" content="Corso Ragazzi (12–17) all'Accademia RCC di Roma: Prima Lezione 15€, da 80€/mese con accordo annuale, trimestri e stagione. Evo Ragazzi ed Expert per chi va oltre. Metodo KataClimb dal 1992.">
+<link rel="canonical" href="https://palestra-arrampicata-roma.it/corsi-arrampicata-ragazzi/">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
+<link rel="shortcut icon" href="/assets/img/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+<meta name="theme-color" content="#ff6b1a">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://palestra-arrampicata-roma.it/corsi-arrampicata-ragazzi/">
+<meta property="og:title" content="Corsi Ragazzi 12–17 | Accademia RCC">
+<meta property="og:description" content="Corso Ragazzi (12–17) all'Accademia RCC di Roma: Prima Lezione 15€, da 80€/mese con accordo annuale, trimestri e stagione. Evo Ragazzi ed Expert per chi va oltre. Metodo KataClimb dal 1992.">
+<meta property="og:image" content="https://palestra-arrampicata-roma.it/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="it_IT">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marco_nescatelli">
+<meta name="twitter:image" content="https://palestra-arrampicata-roma.it/assets/img/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css?v10">
+<style>
+/* Investimento — prezzo in coda a ogni corso */
+.investo{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.investo p.investo-eyebrow{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--terracotta);font-weight:600;margin:0 0 6px;line-height:1.3}
+.investo p.investo-main{font-family:var(--font-display);font-size:clamp(24px,2.6vw,30px);font-weight:700;color:var(--ink);margin:0 0 6px;line-height:1.2}
+.investo p.investo-main span{font-family:var(--font-body,inherit);font-size:15px;font-weight:400;color:var(--ink-soft);letter-spacing:0}
+.investo p.investo-note{font-size:15px;color:var(--ink-soft);margin:0;line-height:1.6}
+.target-card .investo{margin-top:12px}
+.target-card .investo p.investo-main{font-size:22px;margin:0 0 3px}
+.target-card .investo p.investo-main span{font-size:13.5px}
+.target-card .investo p.investo-note{font-size:14.5px;color:var(--ink);margin-top:8px}
+.condizioni-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-4);margin-top:var(--space-4)}
+.condizioni-grid h3{font-family:var(--font-display);font-size:19px;margin:0 0 6px;color:var(--ink)}
+.condizioni-grid p{font-size:15px;color:var(--ink-soft);line-height:1.6;margin:0}
+.formule{margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+.formule h3{font-family:var(--font-display);font-size:clamp(20px,2.2vw,24px);margin:0 0 6px;color:var(--ink)}
+.formule .lead{font-size:15px;color:var(--ink-soft);line-height:1.6;margin:0 0 14px;max-width:var(--w-text)}
+.formule-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.formule table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+.formule th{text-align:left;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;padding:8px 10px 8px 0;border-bottom:2px solid var(--terracotta)}
+.formule td{padding:9px 10px 9px 0;border-bottom:1px solid var(--line);color:var(--ink);vertical-align:top;font-variant-numeric:tabular-nums}
+.formule td:first-child{font-weight:600}
+.formule td small{display:block;font-weight:400;color:var(--ink-soft);font-size:12.5px}
+.formule .nota{font-size:13.5px;color:var(--ink-soft);line-height:1.6;margin:12px 0 0}
+</style>
+
+<style>
+.scegli{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.scegli a{font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);text-decoration:none}
+.scegli a.qui{background:var(--terracotta);border-color:var(--terracotta);color:#fff}
+.scegli a:hover{border-color:var(--terracotta);color:var(--terracotta)}
+.scegli a.qui:hover{color:#fff}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-wrap">
+    <a class="logo" href="/" aria-label="Accademia ArrampiKata RCC — Home">
+      <img src="/assets/img/logo-rcc.png" alt="Accademia ArrampiKata RCC" width="227" height="114">
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/percorsi-arrampicata-adulti/" class="active">Percorsi</a></li>
+        <li><a href="https://kataclimb.com/orari.html" target="_blank" rel="noopener">Calendario Accademia</a></li>
+        <li><a href="/metodo-kataclimb/">Metodo</a></li>
+        <li><a href="/libro-scalare-impossibile/">Libro</a></li>
+        <li><a href="/katacamp-arrampicata-estero/">Viaggi</a></li>
+        <li><a href="/diventa-istruttore/">Diventa Istruttore</a></li>
+        <li><a href="/progetti-scolastici/">Progetti Scuole</a></li>
+        <li><a href="https://kataclimb.com/eventi.html" target="_blank" rel="noopener">Eventi</a></li>
+        <li><a href="/#contatti">Contatti</a></li>
+        <li><a href="https://wa.me/393318743953?text=Ciao!%20Vorrei%20prenotare%20una%20lezione%20di%20prova." class="cta" target="_blank" rel="noopener">Prenota</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="block-inner">
+    <p class="eyebrow">12 — 17 anni</p>
+    <h1 class="page-title">Corsi di Arrampicata per Ragazzi</h1>
+    <p class="page-sub">Canalizzare l'energia, costruire relazioni autentiche, scoprire il proprio passo.</p>
+    <div class="scegli"><a href="/percorsi-arrampicata-adulti/">Adulti</a><a href="/corso-giovani-18-24/">Giovani 18–24</a><a href="/corsi-arrampicata-bambini/">Bambini 6–11</a><a href="/corsi-arrampicata-ragazzi/" class="qui">Ragazzi 12–17</a><a href="/veterani-accademia/">Veterani</a></div>
+  </div>
+</section>
+
+<section class="block percorso-bg" id="ragazzi" style="scroll-margin-top: 110px;">
+  <div class="block-inner">
+    <p class="eyebrow">I corsi</p>
+    <h2 class="section-title">Ragazzi, Evo Ragazzi, Expert</h2>
+    <p class="section-lead">Stessi principi, metodologia diversa. Per i più giovani il gioco e la condivisione sono la via — ma la via la percorre ognuno col proprio passo.</p>
+    <p class="section-lead">In Accademia nessun bambino e nessun ragazzo è un numero dentro un gruppo: ogni persona è vista, seguita e riconosciuta in ciò che sa fare oggi e in ciò che sta diventando. L'istruttore lavora col singolo dentro il gruppo — la postura, l'equilibrio, l'atterraggio, la fiducia — e ogni abilità, quando c'è, viene certificata e custodita nel portale KataClimb con la sua testimonianza video: una memoria del percorso che il ragazzo si porta dietro, e che i genitori possono vedere con i propri occhi. Qui si impara anche che le responsabilità non sono un peso, ma lo strumento per gestire le situazioni. Non addestriamo a salire: accompagniamo a crescere, e a vedersi abili.</p>
+    <div class="target-grid">
+      <div class="target-card">
+        <img src="/assets/img/photo-allieva-traverso.jpg" alt="Corso ragazzi all'Accademia RCC" loading="lazy">
+        <div class="target-card-body">
+          <p class="age-tag">12 — 17 anni</p>
+          <h3>Ragazzi</h3>
+          <p>L'arrampicata come spazio dove canalizzare l'energia, costruire relazioni autentiche, scoprire il proprio passo. Corpo e testa insieme: gli errori che diventano occasioni, l'impegno che ha una direzione.</p>
+          <p class="card-price">Prima lezione: <strong>15€</strong></p><div class="investo"><p class="investo-eyebrow">Investimento</p><p class="investo-main">da 80€/mese <span>· 1 volta a settimana</span></p><p class="investo-main">85€/mese <span>· 2 volte a settimana</span></p><p class="investo-note">Dentro c'è tutto: l'istruttore che lavora su ogni allievo uno per uno, la sala, e il portale con le testimonianze video delle sue abilità. Formule di pagamento e vantaggi su misura con la segreteria. Il primo mese è di prova, senza impegno.</p></div>
+        </div>
+      </div>
+      <div class="target-card">
+        <img src="/assets/img/photo-evo-ragazzi.jpg" alt="Gruppo Evo Ragazzi in preparazione alla corda all'Accademia RCC" loading="lazy">
+        <div class="target-card-body">
+          <p class="age-tag">Su selezione</p>
+          <h3>Evo Ragazzi</h3>
+          <p>Per chi è pronto a un passo in più: il mercoledì con il gruppo Evo, più un giorno col gruppo Ragazzi. L'ingresso è su selezione, con invito diretto alle famiglie; frequenza libera in sala nei giorni di corso.</p>
+          <div class="investo"><p class="investo-eyebrow">Investimento</p><p class="investo-main">88€/mese <span>· mercoledì + 1 giorno</span></p><p class="investo-note">Dentro c'è tutto: istruttore, sala nei giorni di corso, portale con le testimonianze video. Formule su misura con la segreteria. Inizio 15 settembre.</p></div>
+        </div>
+      </div>
+      <div class="target-card" id="expert" style="scroll-margin-top:110px">
+        <img src="/assets/img/volo ragazzo emiliano expert.jpg" alt="Corso Expert all'Accademia RCC" loading="lazy">
+        <div class="target-card-body">
+          <p class="age-tag">Avanzato</p>
+          <h3>Expert</h3>
+          <p>Per chi ha imparato a sentirsi e gestirsi sul verticale e vuole andare oltre, sviluppando le abilità e le responsabilità della cordata.</p>
+          <div class="investo"><p class="investo-eyebrow">Investimento</p><p class="investo-main">90€/mese <span>· mercoledì + accesso in sala</span></p><p class="investo-note">Una lezione e mezza a settimana, e la sala tutta la settimana. Formule su misura con la segreteria. Ingresso su valutazione del maestro.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="step" style="margin-top:40px;border-top:1px solid var(--line)"><div class="step-num">+</div><div class="step-body"><h3>Corso Genitori — mentre tuo figlio è in lezione</h3><p>Il giovedì, in contemporanea col corso dei figli: un impegno solo per tutta la famiglia. Il metodo dall'Open all'Advance, con elementi di conoscenza della corda; chi vuole proseguire sulla corda passa poi ai corsi Intro ed Evo. A settembre le prove, da ottobre le lezioni.</p><div class="investo"><p class="investo-eyebrow">Investimento</p><p class="investo-main">70€/mese <span>· 1 lezione a settimana · giovedì</span></p><p class="investo-note">Prima Lezione Genitori 25€, riservata alle famiglie con figlio in lezione. Ingresso lezione singola 20€. Dal 2° genitore −25% sulla quota corso.</p></div></div></div>
+  </div>
+</section>
+
+<section class="block percorso-bg">
+  <div class="block-inner">
+    <p class="eyebrow">Il portale KataClimb</p>
+    <h2 class="section-title">Ciò che tuo figlio sa fare, resta</h2>
+    <p class="section-lead">Ogni abilità, quando c'è, viene riconosciuta da chi ha il titolo per farlo e custodita nel portale KataClimb con la sua testimonianza video: il registro delle attività e delle abilità conseguite — e validate. Nessuno è autoreferenziale: non è il ragazzo a dire "sono capace". È visibile, resta lì, e i genitori possono vederlo con i propri occhi. La privacy la sceglie la famiglia.</p>
+    <p style="margin-top: 24px;"><a class="btn-link-arrow" href="https://kataclimb.com/portale.html" target="_blank" rel="noopener">Scopri il portale KataClimb</a></p>
+  </div>
+</section>
+
+<section class="block" id="condizioni" style="scroll-margin-top: 110px;">
+  <div class="block-inner">
+    <p class="eyebrow">Investimento</p>
+    <h2 class="section-title">Le condizioni, dette una volta</h2>
+    <p class="section-lead">Il prezzo lo trovi in fondo alla descrizione del corso — perché prima viene il perché. Qui le regole per le famiglie.</p>
+    <div class="condizioni-grid">
+      <div><h3>Iscrizione annuale — 40€</h3><p>Assicurazione e registrazione. Si paga al primo corso (nell'Open è già inclusa), scade il 31 dicembre. Mai scontata.</p></div>
+      <div><h3>Famiglia</h3><p>Dal 2° figlio −10% sulla quota corso (sulla stagione si applica al prezzo già scontato); dal 2° genitore −25% sul Corso Genitori. Mai su iscrizione e Prima Lezione.</p></div>
+      <div><h3>Attrezzatura</h3><p>Scarpette fornite dall'Accademia per le prime 4 lezioni; poi proprie (chiedi all'istruttore quali comprare) o a noleggio, 5€ a ingresso.</p></div>
+      <div><h3>Come si paga</h3><p>Prima Lezione, poi un mese di prova senza impegno. Chi prosegue sceglie con la segreteria la formula su misura: a trimestri, stagione intera con vantaggi per chi paga in un'unica soluzione, oppure — novità di quest'anno — l'accordo annuale pagato al mese dal portale, con addebito automatico. Ogni periodo si paga prima che inizi.</p></div>
+      <div><h3>La stagione</h3><p>Dal 1° settembre al 30 giugno. Il listino completo, con tutte le opzioni, lo trovi sul tuo profilo del portale KataClimb — e in segreteria.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block testimonianze-bg">
+  <div class="block-inner">
+    <p class="eyebrow">Voci dalla verticale</p>
+    <h2 class="section-title">Cosa dicono di noi</h2>
+    <p class="section-lead">Le storie di chi ha già percorso il cammino. Non promesse, non slogan: parole vere di persone vere.</p>
+    <div class="video-embed-wrap">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/videoseries?list=PLgMW-61jiwe8Lj7zE5ICbazBpfW3r4TaZ"
+        title="Testimonianze allievi Accademia RCC"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        loading="lazy"></iframe>
+    </div>
+    <p style="text-align: center; margin-top: 32px;">
+      <a class="btn-link-arrow" href="https://www.youtube.com/playlist?list=PLgMW-61jiwe8Lj7zE5ICbazBpfW3r4TaZ" target="_blank" rel="noopener">Vedi tutte le testimonianze</a>
+    </p>
+  </div>
+</section>
+
+<section class="block cta-section">
+  <div class="block-inner">
+    <h2 class="section-title">Inizia dalla Prima Lezione</h2>
+    <p>Una lezione per scoprire il metodo KataClimb: 10€ bambini, 15€ ragazzi. Nessun vincolo. E il giovedì, mentre tuo figlio è in lezione, la Prima Lezione Genitori.</p>
+    <a class="btn btn-primary" href="https://kataclimb.com/inizia-minori.html">Prenota la Prima Lezione</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p><strong>Accademia ArrampiKata RCC</strong> — Via Cassia 1634, Roma La Storta</p>
+  <p>Telefono <a href="tel:+390630890746">+39 06 3089 0746</a> · <a href="mailto:rccsegreteria@gmail.com">rccsegreteria@gmail.com</a></p>
+  <p style="margin-top: 16px;">© 1992–2026 Accademia RCC · Metodo KataClimb® di Marco Nescatelli</p>
+</footer>
+
+<a href="https://wa.me/393318743953?text=Ciao!%20Vorrei%20avere%20informazioni." class="wa-float" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+</body>
+</html>

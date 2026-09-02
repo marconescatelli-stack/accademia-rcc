@@ -2,8 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://palestra-arrampicata-roma.it/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://palestra-arrampicata-roma.it/percorsi-arrampicata-adulti/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://palestra-arrampicata-roma.it/corso-giovani-18-24/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://palestra-arrampicata-roma.it/corsi-arrampicata-bambini/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://palestra-arrampicata-roma.it/corsi-arrampicata-ragazzi/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://palestra-arrampicata-roma.it/veterani-accademia/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://palestra-arrampicata-roma.it/metodo-kataclimb/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://palestra-arrampicata-roma.it/progetti-scolastici/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://palestra-arrampicata-roma.it/katacamp-arrampicata-estero/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://palestra-arrampicata-roma.it/libro-scalare-impossibile/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://palestra-arrampicata-roma.it/diventa-istruttore/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
