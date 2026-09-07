@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<!-- KC-BUILD: sito-index v1.5 · 2026-09-07 · SENIOR: voce nav "Senior 60+" dopo Percorsi, card Senior over 60 nella griglia per eta (subito dopo Giovani, stesso markup, foto placeholder photo-corso-rcc.jpg da sostituire), section-lead "Adulti, giovani, senior, bambini e ragazzi", senior over 60 nell'elenco corsi di meta e og description. Card Giovani: la lezione settimanale passa dal venerdi al GIOVEDI (allineata a corsi_attivi_settimanali: giovedi 21-22). Prezzi Prima Lezione invariati; il Senior entra dalla Prima Lezione Adulti a 25€. CUMULA v1.4 (riga sotto). -->
+<!-- KC-BUILD: sito-index v1.5 · 2026-09-07 · SENIOR: voce nav "Senior 60+" dopo Percorsi, card Senior over 60 nella griglia per eta (subito dopo Giovani, stesso markup, foto placeholder photo-corso-rcc.jpg da sostituire), section-lead "Adulti, giovani, senior, bambini e ragazzi", senior over 60 nell'elenco corsi di meta e og description. Card Giovani: la lezione settimanale passa dal venerdi al GIOVEDI (allineata a corsi_attivi_settimanali: giovedi 21-22). Prezzi Prima Lezione invariati; il Senior entra dalla Prima Lezione Adulti a 25€. Con 12 voci la nav su desktop stretto non stava piu in una riga: aggiunto flex-wrap:wrap alla regola base .nav-links in styles.css (sotto 860px andava gia a capo, il font resta 13px, minimo consentito). Cache-buster del CSS condiviso portato a ?v11 su tutte le pagine: la home era rimasta indietro a ?v9 mentre le altre 11 erano gia a ?v10. Bonifica terminologia: "Non siamo una palestra qualsiasi" -> "Non siamo un centro di arrampicata qualsiasi" (termine vietato nei testi di pagina; resta legittimo in meta keywords e JSON-LD, che sono SEO). CUMULA v1.4 (riga sotto). -->
 <!-- KC-BUILD: sito-index v1.4 · 2026-09-02 · PAGINE PER GRUPPO: le 5 card per età linkano le pagine dedicate (/percorsi-arrampicata-adulti/, /corso-giovani-18-24/, /corsi-arrampicata-bambini/, /corsi-arrampicata-ragazzi/ e #expert); le ancore #corso-giovani e #bambini-ragazzi non esistono più. RICHIEDE le 5 pagine. CUMULA v1.3 · 2026-08-31 · CORSO GIOVANI 18-24 IN HOME: card "Giovani 18-24" nella griglia per età (link /percorsi-arrampicata-adulti/#corso-giovani, prima lezione 20€), prezzo giovani aggiunto in CTA Prenota, meta description e OG description. RICHIEDE percorsi v1.2 live (ancora #corso-giovani). CUMULA v1.2 (riga sotto). -->
 <!-- KC-BUILD: sito-index v1.2 · 2026-07-17 · voce nav "Libro" dopo Metodo → /libro-scalare-impossibile/ (libro nel menù principale, Marco 17 lug). CUMULA v1.1 (riga sotto). -->
 <!-- KC-BUILD: sito-index v1.1 · 2026-07-15 · ETICHETTA "Calendario Accademia" (Marco) + voce nav subito dopo Percorsi. CUMULA v1.0 · CALENDARIO ACCADEMIA (porta da sito Accademia a kataclimb.com/orari.html, Cantiere A2): (1) voce nav "Calendario Accademia" tra Progetti Scuole ed Eventi; (2) terzo bottone hero btn-outline; (3) link freccia nella CTA Prenota; (4) blocco Calendario Accademia in Contatti/Dove siamo; (5) FIX meta description e OG description: prezzo Prima Lezione era "15€" generico, ora 3 fasce corrette (adulti 25€ · ragazzi 15€ · bambini 10€); (6) FIX alt galleria: rimosso termine vietato (regola Marco 14 lug), ora "coaching su parete". Base: index.html branch nuovo-sito fornito da Marco 15 lug. -->
@@ -40,7 +40,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/assets/css/styles.css?v9">
+<link rel="stylesheet" href="/assets/css/styles.css?v11">
 
 <!-- Schema.org LocalBusiness -->
 <script type="application/ld+json">
@@ -241,7 +241,7 @@
   <div class="block-inner">
     <p class="eyebrow">Cosa ci rende unici</p>
     <h2 class="section-title">Sei pilastri, una sola Accademia</h2>
-    <p class="section-lead">Non siamo una palestra qualsiasi. Siamo un sistema integrato dove la struttura, il metodo e la comunità convergono per formare scalatori autonomi e consapevoli.</p>
+    <p class="section-lead">Non siamo un centro di arrampicata qualsiasi. Siamo un sistema integrato dove la struttura, il metodo e la comunità convergono per formare scalatori autonomi e consapevoli.</p>
     <div class="unicita-grid">
       <div class="unicita-card">
         <div class="unicita-icon">

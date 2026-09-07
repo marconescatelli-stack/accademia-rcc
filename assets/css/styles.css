@@ -198,6 +198,7 @@ header.site-nav {
 }
 .nav-links {
   display: flex;
+  flex-wrap: wrap;
   gap: clamp(12px, 2vw, 28px);
   align-items: center;
 }
