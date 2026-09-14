@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<!-- KC-BUILD: sito-giovani v1.1 · 2026-09-07 · ORARIO: la lezione settimanale passa da VENERDI 18-19 a GIOVEDI 21-22, allineata a corsi_attivi_settimanali (Giovani = giovedi 21:00-22:00, attivo). Corretti titolo di sezione, lead con l'orario, meta description e og description. Lo slot del venerdi 18-19 passa al nuovo Corso Senior KataClimb (over 60). Aggiunte anche la voce nav "Senior 60+" dopo Percorsi e la pill Senior nella barra di scelta. Prezzi invariati (140€/mese, Prima Lezione Giovani 20€). NB: questa pagina portava ancora la sigla KC-BUILD "sito-percorsi", ereditata dal clone; da qui in avanti e "sito-giovani". CUMULA sito-percorsi v1.2 · 2026-08-31 · SEZIONE CORSO GIOVANI KATACLIMB 18-24: nuovo blocco #corso-giovani tra Percorso Corda e Bambini/Ragazzi (venerdi' 18-19, Sala con Monitor, percorso Open->Advance->manovre corda, passaggio ai gruppi avanzati su Kata certificati) + CTA 'Prenota la Prima Lezione Giovani 20€' -> kataclimb.com/inizia-giovani.html; prezzo giovani aggiunto nella CTA finale e in meta description. CUMULA v1.1 · 2026-07-17 · voce nav "Libro" dopo Metodo → /libro-scalare-impossibile/. CUMULA v1.0 (riga sotto). -->
+<!-- KC-BUILD: sito-giovani v1.2 · 2026-09-14 · PILLOLE LEGGIBILI + GENITORI (Marco 14 set): la barra di scelta sopra la foto hero aveva testo grigio su foto scura, illeggibile finché non ci passavi sopra → ora testo bianco su fondo scuro traslucido, hover bianco/terracotta; aggiunta pillola 'Genitori' dopo Ragazzi → blocco Corso Genitori (#corso-genitori) nella pagina bambini/ragazzi. NIENT'ALTRO toccato. CUMULA sito-giovani v1.1 · 2026-09-07 · ORARIO: la lezione settimanale passa da VENERDI 18-19 a GIOVEDI 21-22, allineata a corsi_attivi_settimanali (Giovani = giovedi 21:00-22:00, attivo). Corretti titolo di sezione, lead con l'orario, meta description e og description. Lo slot del venerdi 18-19 passa al nuovo Corso Senior KataClimb (over 60). Aggiunte anche la voce nav "Senior 60+" dopo Percorsi e la pill Senior nella barra di scelta. Prezzi invariati (140€/mese, Prima Lezione Giovani 20€). NB: questa pagina portava ancora la sigla KC-BUILD "sito-percorsi", ereditata dal clone; da qui in avanti e "sito-giovani". CUMULA sito-percorsi v1.2 · 2026-08-31 · SEZIONE CORSO GIOVANI KATACLIMB 18-24: nuovo blocco #corso-giovani tra Percorso Corda e Bambini/Ragazzi (venerdi' 18-19, Sala con Monitor, percorso Open->Advance->manovre corda, passaggio ai gruppi avanzati su Kata certificati) + CTA 'Prenota la Prima Lezione Giovani 20€' -> kataclimb.com/inizia-giovani.html; prezzo giovani aggiunto nella CTA finale e in meta description. CUMULA v1.1 · 2026-07-17 · voce nav "Libro" dopo Metodo → /libro-scalare-impossibile/. CUMULA v1.0 (riga sotto). -->
 <!-- KC-BUILD: sito-percorsi v1.0 · 2026-07-15 · voce nav "Calendario Accademia" dopo Percorsi → kataclimb.com/orari.html (Cantiere A2, porta 2/6). Nessun'altra modifica. Base: pagina live 15 lug. -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,10 +63,10 @@
 
 <style>
 .scegli{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
-.scegli a{font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);text-decoration:none}
-.scegli a.qui{background:var(--terracotta);border-color:var(--terracotta);color:#fff}
-.scegli a:hover{border-color:var(--terracotta);color:var(--terracotta)}
-.scegli a.qui:hover{color:#fff}
+.scegli a{font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:8px 14px;border:1px solid rgba(255,255,255,.8);border-radius:999px;color:#fff;background:rgba(0,0,0,.32);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);text-decoration:none;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+.scegli a.qui{background:var(--terracotta);border-color:var(--terracotta);color:#fff;text-shadow:none}
+.scegli a:hover{background:#fff;border-color:#fff;color:var(--terracotta);text-shadow:none}
+.scegli a.qui:hover{background:var(--terracotta);color:#fff}
 </style>
 </head>
 <body>
@@ -100,7 +100,7 @@
     <p class="eyebrow">18 — 24 anni</p>
     <h1 class="page-title">Corso Giovani KataClimb</h1>
     <p class="page-sub">Il tuo ingresso in Accademia: imparare a progredire, non solo a salire.</p>
-    <div class="scegli"><a href="/percorsi-arrampicata-adulti/">Adulti</a><a href="/corso-giovani-18-24/" class="qui">Giovani 18–24</a><a href="/corsi-arrampicata-bambini/">Bambini 6–11</a><a href="/corsi-arrampicata-ragazzi/">Ragazzi 12–17</a><a href="/corso-senior-over-60/">Senior 60+</a><a href="/veterani-accademia/">Veterani</a></div>
+    <div class="scegli"><a href="/percorsi-arrampicata-adulti/">Adulti</a><a href="/corso-giovani-18-24/" class="qui">Giovani 18–24</a><a href="/corsi-arrampicata-bambini/">Bambini 6–11</a><a href="/corsi-arrampicata-ragazzi/">Ragazzi 12–17</a><a href="/corsi-arrampicata-bambini/#corso-genitori">Genitori</a><a href="/corso-senior-over-60/">Senior 60+</a><a href="/veterani-accademia/">Veterani</a></div>
   </div>
 </section>
 
