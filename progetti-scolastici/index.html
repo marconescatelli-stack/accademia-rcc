@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<!-- KC-BUILD: sito-scuole v2.2 · 2026-10-20 · DOVE OPERIAMO, 3 ZONE IN PIU' (Marco 20 ott): dopo La Storta aggiunte Giustiniana, Tomba di Nerone, Cassia, stesso stile .zona-card; le 6 di prima restano. 9 card. Nient'altro. CUMULA v2.1 · 2026-10-20 · PASSO 03 SENZA SCADENZA (decisione Marco 20 ott): titolo "Preventivo e accettazione, entro 7 giorni" -> "Preventivo"; testo -> "Dopo la telefonata vi mandiamo il preventivo con la data concordata. La scuola lo conferma per iscritto." Tolti i 7 giorni per accettare il preventivo e la data che si sblocca dopo. Restano i 7 giorni del passo 04 (moduli mancanti completabili fino a 7 giorni prima). Nient'altro. CUMULA v2.0 · 2026-10-20 · PROCEDURA PER LE SCUOLE (consegna Marco v1, 20 ott, contenuti approvati da Marco): sostituite le sezioni "Per le scuole" e "Cosa offriamo" con Il progetto, Cosa sviluppano i ragazzi (4 card), Le due formule (Prima Lezione 10 euro a ragazzo / Percorso su preventivo), Come funziona (5 passi + Regole chiare), Modulo di richiesta che compone il messaggio e apre WhatsApp 393318743953 (nessun dato salvato, nessun backend) e Documenti per la scuola (PDF modulo di adesione). Tenuti menu, testata, Dove operiamo e piede. Tolta la vecchia fascia "Sei una scuola interessata?": il suo posto lo prende il modulo. Meta description nuova. Stili del modulo e del bottone scuro in un style di questa sola pagina: styles.css non toccato. Foto dei gruppi scuola (fornite da Marco 20 ott, ridotte a 1600px JPG 80, metadati tolti, volti dei ragazzi sfocati, istruttori nitidi): testata sala dall'alto (solo questa pagina), Il progetto sala da lontano, Come funziona parete arancione e soppalco. CUMULA v1.1 · 2026-09-07 · BONIFICA TERMINOLOGIA: nella scheda delle esperienze di una giornata il termine vietato sostituito con "in Accademia" ("palestra" resta ammesso solo in meta e alt per i motori di ricerca). Nessun altro testo toccato. CUMULA v1.0 · 2026-07-17 · voce nav "Libro" dopo Metodo → /libro-scalare-impossibile/. Nessun'altra modifica. NOTA: manca ancora "Calendario Accademia" (Cantiere A2). -->
+<!-- KC-BUILD: sito-scuole v2.3 · 2026-10-20 · RICHIESTA SALVATA SU SUPABASE (Marco 20 ott): al click su "Invia la richiesta su WhatsApp", dopo la validazione, POST alla RPC inserisci_richiesta_scuola (SECURITY DEFINER, EXECUTE ad anon, verificata a DB) con la chiave pubblica anon (la stessa di kataclimb inizia.html), poi WhatsApp come prima. Errore, rete assente o oltre 4 secondi: WhatsApp si apre lo stesso. La scheda si apre subito al click e va su wa.me dopo il salvataggio (Safari blocca i popup aperti dopo un'attesa); se il popup e' bloccato, stessa scheda. Bottone spento durante l'invio. Nessuna lettura dal DB, nessun altro dato. CUMULA v2.2 · 2026-10-20 · DOVE OPERIAMO, 3 ZONE IN PIU' (Marco 20 ott): dopo La Storta aggiunte Giustiniana, Tomba di Nerone, Cassia, stesso stile .zona-card; le 6 di prima restano. 9 card. Nient'altro. CUMULA v2.1 · 2026-10-20 · PASSO 03 SENZA SCADENZA (decisione Marco 20 ott): titolo "Preventivo e accettazione, entro 7 giorni" -> "Preventivo"; testo -> "Dopo la telefonata vi mandiamo il preventivo con la data concordata. La scuola lo conferma per iscritto." Tolti i 7 giorni per accettare il preventivo e la data che si sblocca dopo. Restano i 7 giorni del passo 04 (moduli mancanti completabili fino a 7 giorni prima). Nient'altro. CUMULA v2.0 · 2026-10-20 · PROCEDURA PER LE SCUOLE (consegna Marco v1, 20 ott, contenuti approvati da Marco): sostituite le sezioni "Per le scuole" e "Cosa offriamo" con Il progetto, Cosa sviluppano i ragazzi (4 card), Le due formule (Prima Lezione 10 euro a ragazzo / Percorso su preventivo), Come funziona (5 passi + Regole chiare), Modulo di richiesta che compone il messaggio e apre WhatsApp 393318743953 (nessun dato salvato, nessun backend) e Documenti per la scuola (PDF modulo di adesione). Tenuti menu, testata, Dove operiamo e piede. Tolta la vecchia fascia "Sei una scuola interessata?": il suo posto lo prende il modulo. Meta description nuova. Stili del modulo e del bottone scuro in un style di questa sola pagina: styles.css non toccato. Foto dei gruppi scuola (fornite da Marco 20 ott, ridotte a 1600px JPG 80, metadati tolti, volti dei ragazzi sfocati, istruttori nitidi): testata sala dall'alto (solo questa pagina), Il progetto sala da lontano, Come funziona parete arancione e soppalco. CUMULA v1.1 · 2026-09-07 · BONIFICA TERMINOLOGIA: nella scheda delle esperienze di una giornata il termine vietato sostituito con "in Accademia" ("palestra" resta ammesso solo in meta e alt per i motori di ricerca). Nessun altro testo toccato. CUMULA v1.0 · 2026-07-17 · voce nav "Libro" dopo Metodo → /libro-scalare-impossibile/. Nessun'altra modifica. NOTA: manca ancora "Calendario Accademia" (Cantiere A2). -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Progetti Scolastici | Arrampicata per Scuole Roma | Accademia RCC</title>
@@ -252,11 +252,32 @@
 </section>
 
 <script>
-/* Modulo richiesta scuole: nessun dato salvato, nessun backend. Compone il messaggio e apre WhatsApp. */
+/* Modulo richiesta scuole (v2.3): valida, salva la richiesta su Supabase (RPC inserisci_richiesta_scuola,
+   solo scrittura, nessuna lettura) e apre WhatsApp come prima. Se il salvataggio fallisce o supera
+   4 secondi WhatsApp si apre lo stesso: la richiesta non si perde mai. */
 (function(){
   var form=document.getElementById('richiesta-form');
   if(!form)return;
   var box=document.getElementById('richiesta-errori');
+  var btn=form.querySelector('button[type=submit]');
+  var SB_URL='https://wbtougychlhnlcnonqge.supabase.co';
+  var SB_ANON='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndidG91Z3ljaGxobmxjbm9ucWdlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0MTQ0MTUsImV4cCI6MjA5MDk5MDQxNX0.QwYWbaOkquJCwOHV6e9w38bLGEO-iNzuH7mwBVgTa9E'; // chiave PUBBLICA anon (la stessa di kataclimb inizia.html), nessuna chiave segreta
+  var SALVA_MAX_MS=4000;
+  var inCorso=false;
+  function salvaRichiesta(dati){
+    // risolve sempre: errore, rete assente o oltre 4 secondi non fermano WhatsApp
+    return new Promise(function(fine){
+      var ctrl=('AbortController' in window)?new AbortController():null;
+      var t=setTimeout(function(){if(ctrl)ctrl.abort();fine(false);},SALVA_MAX_MS);
+      fetch(SB_URL+'/rest/v1/rpc/inserisci_richiesta_scuola',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','apikey':SB_ANON,'Authorization':'Bearer '+SB_ANON},
+        body:JSON.stringify(dati),
+        signal:ctrl?ctrl.signal:undefined
+      }).then(function(r){clearTimeout(t);if(!r.ok)console.warn('[richiesta scuola] salvataggio non riuscito: HTTP '+r.status);fine(r.ok);})
+        .catch(function(e){clearTimeout(t);console.warn('[richiesta scuola] salvataggio non riuscito:',e);fine(false);});
+    });
+  }
   function val(id){return document.getElementById(id).value.trim();}
   form.addEventListener('input',function(e){if(e.target.classList)e.target.classList.remove('manca');});
   form.addEventListener('change',function(e){if(e.target.classList)e.target.classList.remove('manca');});
@@ -288,8 +309,22 @@
     var note=val('rq-note');
     if(note)righe.push('Note: '+note);
     var url='https://wa.me/393318743953?text='+encodeURIComponent(righe.join('\n'));
-    var w=window.open(url,'_blank'); // senza 'noopener' nelle opzioni: con quello window.open torna sempre null
-    if(w){try{w.opener=null;}catch(_){}}else window.location.href=url; // popup bloccato: stessa scheda
+    if(inCorso)return;
+    inCorso=true;btn.disabled=true;var testoBtn=btn.textContent;btn.textContent='Invio in corso…';
+    // la scheda si apre SUBITO, dentro il click: dopo l'attesa del salvataggio Safari bloccherebbe il popup
+    var w=window.open('','_blank');
+    if(w){try{w.opener=null;w.document.title='WhatsApp';w.document.body.textContent='Apro WhatsApp…';}catch(_){}}
+    salvaRichiesta({
+      p_scuola:val('rq-scuola'),p_referente:val('rq-referente'),p_telefono:val('rq-tel'),
+      p_numero_ragazzi:Number(val('rq-numero')),p_eta_classi:val('rq-eta'),
+      p_tipo_gruppo:val('rq-gruppo'),p_formula:val('rq-formula'),
+      p_periodo:val('rq-periodo'),p_fascia:val('rq-fascia'),
+      p_note:note||null,p_pagina:location.pathname
+    }).then(function(){
+      inCorso=false;btn.disabled=false;btn.textContent=testoBtn;
+      if(w&&!w.closed){try{w.location.href=url;return;}catch(_){}}
+      window.location.href=url; // popup bloccato o scheda chiusa: stessa scheda
+    });
   });
 })();
 </script>
