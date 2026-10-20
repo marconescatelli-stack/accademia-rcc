@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<!-- KC-BUILD: sito-scuole v1.1 · 2026-09-07 · BONIFICA TERMINOLOGIA: nella scheda delle esperienze di una giornata il termine vietato sostituito con "in Accademia" ("palestra" resta ammesso solo in meta e alt per i motori di ricerca). Nessun altro testo toccato. CUMULA v1.0 · 2026-07-17 · voce nav "Libro" dopo Metodo → /libro-scalare-impossibile/. Nessun'altra modifica. NOTA: manca ancora "Calendario Accademia" (Cantiere A2). -->
+<!-- KC-BUILD: sito-scuole v2.0 · 2026-10-20 · PROCEDURA PER LE SCUOLE (consegna Marco v1, 20 ott, contenuti approvati da Marco): sostituite le sezioni "Per le scuole" e "Cosa offriamo" con Il progetto, Cosa sviluppano i ragazzi (4 card), Le due formule (Prima Lezione 10 euro a ragazzo / Percorso su preventivo), Come funziona (5 passi + Regole chiare), Modulo di richiesta che compone il messaggio e apre WhatsApp 393318743953 (nessun dato salvato, nessun backend) e Documenti per la scuola (PDF modulo di adesione). Tenuti menu, testata, Dove operiamo e piede. Tolta la vecchia fascia "Sei una scuola interessata?": il suo posto lo prende il modulo. Meta description nuova. Stili del modulo e del bottone scuro in un style di questa sola pagina: styles.css non toccato. Foto dei gruppi scuola non ancora fornite: punti segnati con FOTO-SCUOLA. CUMULA v1.1 · 2026-09-07 · BONIFICA TERMINOLOGIA: nella scheda delle esperienze di una giornata il termine vietato sostituito con "in Accademia" ("palestra" resta ammesso solo in meta e alt per i motori di ricerca). Nessun altro testo toccato. CUMULA v1.0 · 2026-07-17 · voce nav "Libro" dopo Metodo → /libro-scalare-impossibile/. Nessun'altra modifica. NOTA: manca ancora "Calendario Accademia" (Cantiere A2). -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Progetti Scolastici | Arrampicata per Scuole Roma | Accademia RCC</title>
-<meta name="description" content="L'Accademia ArrampiKata RCC sviluppa progetti educativi per scuole nella zona di Roma nord: Olgiata, La Storta, Formello, Le Rughe. Esperienze formative attraverso il movimento verticale.">
+<meta name="description" content="Progetto scuole dell'Accademia RCC a Roma nord: Prima Lezione e percorsi di arrampicata con il metodo KataClimb. Procedura, costi e richiesta online.">
 <link rel="canonical" href="https://palestra-arrampicata-roma.it/progetti-scolastici/">
 
 <!-- Favicon -->
@@ -34,6 +34,33 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/styles.css?v11">
+<style>
+/* Solo questa pagina (sito-scuole v2.0): formule, regole, modulo di richiesta, bottone scuro. */
+.capacita-grid{grid-template-columns:repeat(2,1fr)}
+@media (max-width:600px){.capacita-grid{grid-template-columns:1fr}}
+.formule-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3);margin-top:var(--space-5)}
+@media (max-width:700px){.formule-grid{grid-template-columns:1fr}}
+.formula-prezzo{margin-top:var(--space-2);padding-top:var(--space-2);border-top:1px solid var(--line);color:var(--ink) !important;font-size:15.5px;font-weight:600}
+.formule-nota{margin-top:var(--space-3);color:var(--ink-soft);font-size:15.5px;line-height:1.6}
+.regole-block h3{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--ink);margin-bottom:var(--space-1)}
+.regole-block ul{margin:0;padding-left:20px;color:var(--ink-soft);font-size:15.5px;line-height:1.65}
+.regole-block li{margin-top:6px}
+.step-body a,.doc-block a.doc-link{color:var(--orange-deep);font-weight:600;text-decoration:underline}
+.richiesta-form{display:grid;gap:18px;margin-top:var(--space-3)}
+.richiesta-form label{display:block;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.richiesta-form .facolt{font-weight:400;color:var(--ink-muted)}
+.richiesta-form input,.richiesta-form select,.richiesta-form textarea{display:block;width:100%;box-sizing:border-box;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1.5px solid var(--line-strong);border-radius:10px;padding:12px 14px}
+.richiesta-form textarea{min-height:96px;resize:vertical}
+.richiesta-form input:focus,.richiesta-form select:focus,.richiesta-form textarea:focus{outline:none;border-color:var(--orange)}
+.richiesta-form .manca{border-color:#b91c1c;background:#fef2f2}
+.richiesta-errori{display:none;color:#b91c1c;background:#fef2f2;border:1px solid #fca5a5;border-radius:10px;padding:12px 14px;font-size:15px;line-height:1.5}
+.btn-scuro{background:var(--night);color:var(--paper);border-color:var(--night);width:100%;white-space:normal;cursor:pointer}
+.btn-scuro:hover{background:var(--night-soft);border-color:var(--night-soft);transform:translateY(-2px)}
+.richiesta-mail{text-align:center;font-size:15px;color:var(--ink-soft)}
+.richiesta-mail a{color:var(--orange-deep);font-weight:600}
+.doc-block{margin-top:var(--space-4)}
+.doc-block p{color:var(--ink-soft);font-size:15.5px;line-height:1.6}
+</style>
 </head>
 
 <body>
@@ -69,49 +96,197 @@
   </div>
 </section>
 
+<!-- FOTO-SCUOLA apertura: riscaldamento a braccia alzate (ragazzi di spalle), prima immagine della pagina, SENZA loading="lazy".
+     Da inserire quando Marco fornisce la foto: <img src="/assets/img/…" alt="…" width="1600" height="…"> -->
+
 <section class="block">
   <div class="block-inner">
     <div class="progetti-block">
-      <p class="eyebrow">🎓 Per le scuole</p>
-      <p style="color: var(--ink-soft); line-height: 1.75; font-size: 16.5px; margin-bottom: 20px;">L'Accademia RCC sviluppa e propone progetti educativi dedicati alle scuole di Roma nord, portando l'arrampicata e il movimento verticale all'interno di percorsi formativi per bambini e ragazzi nella zona Olgiata, La Storta, Formello e Le Rughe.</p>
-      <p style="color: var(--ink-soft); line-height: 1.75; font-size: 16.5px; margin-bottom: 20px;">Attraverso esperienze pratiche e guidate, gli studenti scoprono nuove capacità di coordinazione, attenzione e fiducia, imparando a mettersi alla prova in un ambiente sicuro e stimolante.</p>
-      <p style="color: var(--ink-soft); line-height: 1.75; font-size: 16.5px; margin-bottom: 20px;">Negli anni l'Accademia ha collaborato con diverse realtà scolastiche, tra cui la <strong>Saint Dominique International School</strong>, proponendo giornate educative, attività di avviamento all'arrampicata e percorsi esperienziali.</p>
-      <hr style="border: none; border-top: 1px solid var(--line); margin: 28px 0;">
-      <p style="color: var(--ink-soft); line-height: 1.7;"><strong>Collaborazioni aperte</strong> — L'Accademia RCC è aperta alla collaborazione con scuole e istituti educativi interessati a sviluppare progetti legati al movimento, alla relazione e alla crescita attraverso l'esperienza.</p>
+      <p class="eyebrow">Il progetto</p>
+      <h2 class="section-title">Arrampicata e Consapevolezza – Metodo KataClimb</h2>
+      <p style="color: var(--ink-soft); line-height: 1.75; font-size: 16.5px; margin-bottom: 20px;">L'Accademia RCC porta nelle scuole il metodo KataClimb: l'arrampicata come strumento di crescita personale e di consapevolezza. La didattica è pratica: non c'è niente da studiare. I ragazzi sperimentano il metodo sulla parete e vedono subito i risultati. Bastano pochi incontri, ma vanno impostati e seguiti, perché dietro c'è una didattica precisa.</p>
+      <p style="color: var(--ink-soft); line-height: 1.75; font-size: 16.5px;">Il progetto è già stato realizzato con l'<strong>Institut International Saint-Dominique</strong> di Roma e con un istituto Cepu.</p>
+      <!-- FOTO-SCUOLA "Il progetto": sala con le schede in mano ai ragazzi (loading="lazy") -->
     </div>
   </div>
 </section>
 
 <section class="block valori-bg">
   <div class="block-inner">
-    <p class="eyebrow">Cosa offriamo</p>
-    <h2 class="section-title">Approccio integrato, risultati immediati</h2>
-    <p class="section-lead">A differenza di approcci puramente teorici, lavoriamo con integrazione e risultati empirici visibili in tempi brevi. Gli studenti non studiano il movimento — lo praticano e lo interiorizzano.</p>
-    <div class="principi-grid">
+    <p class="eyebrow">Cosa sviluppano i ragazzi</p>
+    <h2 class="section-title">Quattro capacità, sulla parete e fuori</h2>
+    <div class="principi-grid capacita-grid">
       <div class="principio-card">
         <div class="principio-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
         </div>
-        <h3>Giornate educative</h3>
-        <p>Esperienze di una giornata o mezza giornata in Accademia, con attività calibrate sull'età e sul livello degli studenti.</p>
+        <h3>Quiete attiva</h3>
+        <p>Prima di un passaggio difficile si impara a fermarsi, respirare e ascoltare, senza farsi muovere dalla paura o dalla fretta. Da quella quiete si sceglie come muoversi e come parlare con il compagno. Non è passività: è la condizione per scegliere.</p>
       </div>
       <div class="principio-card">
         <div class="principio-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg>
         </div>
-        <h3>Percorsi esperienziali</h3>
-        <p>Cicli strutturati che accompagnano la classe lungo un percorso di crescita progressivo, con obiettivi misurabili.</p>
+        <h3>Fiducia in sé</h3>
+        <p>Ogni esercizio è costruito perché il ragazzo ci riesca. Vede con i suoi occhi che un passaggio che sembrava impossibile diventa possibile, seguendo una sequenza precisa. La fiducia non gliela diamo noi: la scopre facendo.</p>
       </div>
       <div class="principio-card">
         <div class="principio-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2M16 3.13a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.87"/></svg>
         </div>
-        <h3>Avviamento sportivo</h3>
-        <p>Programmi di iniziazione all'arrampicata per gruppi classe, integrati con il programma scolastico di educazione motoria.</p>
+        <h3>Fiducia negli altri</h3>
+        <p>In cordata la sicurezza di chi sale è nelle mani di chi resta a terra. I ragazzi imparano ad affidarsi e a essere affidabili, a turno, parlandosi alla pari.</p>
+      </div>
+      <div class="principio-card">
+        <div class="principio-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Percezione</h3>
+        <p>Il corpo, l'equilibrio, il respiro, il compagno: in parete si impara a sentire quello che di solito non si nota. È un'abilità che resta anche fuori dalla parete.</p>
       </div>
     </div>
   </div>
 </section>
+
+<section class="block">
+  <div class="block-inner">
+    <p class="eyebrow">Le due formule</p>
+    <h2 class="section-title">Prima Lezione e Percorso</h2>
+    <div class="formule-grid">
+      <div class="principio-card">
+        <h3>Prima Lezione</h3>
+        <p>2 ore per gruppo, da 15 a 25 ragazzi. Non è una prova: è la prima tappa del metodo.</p>
+        <p class="formula-prezzo">10 € a ragazzo, comprensivi di assicurazione, materiale tecnico e istruttori.</p>
+      </div>
+      <div class="principio-card">
+        <h3>Percorso</h3>
+        <p>Più lezioni costruite sulla classe, dopo la Prima Lezione.</p>
+        <p class="formula-prezzo">Costo su preventivo.</p>
+      </div>
+    </div>
+    <p class="formule-nota">Le lezioni si svolgono in Accademia (Via Cassia 1634, La Storta) dalle 9 alle 17, in un giorno e un orario concordati con la scuola.</p>
+  </div>
+</section>
+
+<section class="block valori-bg">
+  <div class="block-inner">
+    <p class="eyebrow">Come funziona</p>
+    <h2 class="section-title">La procedura, passo per passo</h2>
+    <!-- FOTO-SCUOLA "Come funziona": vista dall'alto della sala intera (loading="lazy") -->
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-body"><h3>Richiesta, almeno 4 settimane prima</h3><p>Compilate il <a href="#richiesta">modulo qui sotto</a>: numero di ragazzi, età, periodo e fascia oraria indicativi.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-body"><h3>Telefonata con il responsabile</h3><p>Marco Nescatelli vi chiama per definire formula, giorno e orario.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-body"><h3>Preventivo e accettazione, entro 7 giorni</h3><p>Ricevete il preventivo scritto. La scuola lo accetta per iscritto entro 7 giorni; dopo, la data non è più bloccata.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-body"><h3>Moduli e saldo, almeno 3 settimane prima</h3><p>La scuola consegna i <a href="/progetti-scolastici/Modulo_Adesione_Partecipante_Progetto_Scuole_v1.pdf" target="_blank" rel="noopener">moduli di adesione</a> dei ragazzi, firmati dai genitori, e il saldo con bonifico in unica soluzione. La data è confermata con il saldo. Servono per il tesseramento di ogni ragazzo con l'ente di promozione sportiva, che dà la copertura assicurativa. I moduli mancanti o incompleti si completano fino a 7 giorni prima: dopo, chi non ha i documenti non partecipa, il gruppo sì.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-body"><h3>La lezione</h3><p>I docenti accompagnatori restano presenti e vigilano sul gruppo fuori dai momenti di attività. I trasferimenti sono a cura della scuola.</p></div>
+      </div>
+    </div>
+    <div class="kataclimb-link-block regole-block">
+      <h3>Regole chiare</h3>
+      <ul>
+        <li>Da 15 a 25 ragazzi per gruppo. Oltre 25 si organizzano due gruppi.</li>
+        <li>Le quote si riferiscono ai ragazzi in lista e non sono rimborsabili per assenze individuali.</li>
+        <li>La scuola può spostare la data una volta, senza costi, fino a 14 giorni prima.</li>
+        <li><strong>Percorso</strong>: si concorda dopo la Prima Lezione, con il calendario intero fissato all'accettazione. La prima lezione del percorso è almeno 6 settimane dopo l'accettazione; moduli dei nuovi partecipanti e saldo entro 4 settimane prima.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="richiesta">
+  <div class="block-inner">
+    <div class="progetti-block">
+      <p class="eyebrow">Richiesta</p>
+      <h2 class="section-title">Chiedete la vostra data</h2>
+      <p style="color: var(--ink-soft); line-height: 1.7; font-size: 16px;">Compilate i campi e premete il bottone: si apre WhatsApp con il messaggio già scritto, voi lo inviate. Non salviamo nessun dato su questa pagina.</p>
+      <form class="richiesta-form" id="richiesta-form" novalidate>
+        <div><label for="rq-scuola">Nome della scuola</label><input type="text" id="rq-scuola" data-nome="Nome della scuola" required autocomplete="organization"></div>
+        <div><label for="rq-referente">Referente: nome e cognome</label><input type="text" id="rq-referente" data-nome="Referente" required autocomplete="name"></div>
+        <div><label for="rq-tel">Telefono del referente</label><input type="tel" id="rq-tel" data-nome="Telefono del referente" required autocomplete="tel" inputmode="tel"></div>
+        <div><label for="rq-numero">Numero di ragazzi</label><input type="number" id="rq-numero" data-nome="Numero di ragazzi" required min="1" step="1" inputmode="numeric"></div>
+        <div><label for="rq-eta">Età o classi dei ragazzi</label><input type="text" id="rq-eta" data-nome="Età o classi dei ragazzi" required placeholder="Es. 11–12 anni, prima media"></div>
+        <div><label for="rq-gruppo">Classe intera o gruppo di interessati</label>
+          <select id="rq-gruppo" data-nome="Classe intera o gruppo di interessati" required>
+            <option value="">Scegli…</option><option>Classe intera</option><option>Gruppo di interessati</option><option>Più classi</option>
+          </select></div>
+        <div><label for="rq-formula">Formula</label>
+          <select id="rq-formula" data-nome="Formula" required>
+            <option value="">Scegli…</option><option>Prima Lezione</option><option>Percorso</option><option>Da valutare insieme</option>
+          </select></div>
+        <div><label for="rq-periodo">Periodo indicativo</label><input type="text" id="rq-periodo" data-nome="Periodo indicativo" required placeholder="Es. seconda metà di novembre"></div>
+        <div><label for="rq-fascia">Fascia oraria indicativa</label>
+          <select id="rq-fascia" data-nome="Fascia oraria indicativa" required>
+            <option value="">Scegli…</option><option>Mattina 9–13</option><option>Primo pomeriggio 13–17</option>
+          </select></div>
+        <div><label for="rq-note">Note <span class="facolt">(facoltativo)</span></label><textarea id="rq-note" maxlength="600"></textarea></div>
+        <div class="richiesta-errori" id="richiesta-errori" role="alert"></div>
+        <button type="submit" class="btn btn-scuro">Invia la richiesta su WhatsApp</button>
+        <p class="richiesta-mail">Preferite la mail? Scrivete a <a href="mailto:rccsegreteria@gmail.com?subject=Richiesta%20Progetto%20Scuole">rccsegreteria@gmail.com</a></p>
+      </form>
+      <div class="kataclimb-link-block doc-block">
+        <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 8px;">Documenti per la scuola</h3>
+        <p><a class="doc-link" href="/progetti-scolastici/Modulo_Adesione_Partecipante_Progetto_Scuole_v1.pdf" target="_blank" rel="noopener">Modulo di adesione del partecipante</a> (PDF): autorizzazione, consenso foto e video facoltativo, informativa privacy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* Modulo richiesta scuole: nessun dato salvato, nessun backend. Compone il messaggio e apre WhatsApp. */
+(function(){
+  var form=document.getElementById('richiesta-form');
+  if(!form)return;
+  var box=document.getElementById('richiesta-errori');
+  function val(id){return document.getElementById(id).value.trim();}
+  form.addEventListener('input',function(e){if(e.target.classList)e.target.classList.remove('manca');});
+  form.addEventListener('change',function(e){if(e.target.classList)e.target.classList.remove('manca');});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var mancano=[],primo=null;
+    form.querySelectorAll('[required]').forEach(function(el){
+      var v=el.value.trim(),ok=v!=='';
+      if(ok&&el.id==='rq-numero'){var n=Number(v);ok=Number.isInteger(n)&&n>=1;}
+      el.classList.toggle('manca',!ok);
+      if(!ok){mancano.push(el.getAttribute('data-nome'));if(!primo)primo=el;}
+    });
+    if(mancano.length){
+      box.textContent='Manca ancora: '+mancano.join(', ')+'.';
+      box.style.display='block';
+      primo.focus();
+      return;
+    }
+    box.style.display='none';
+    var righe=[
+      'Richiesta Progetto Scuole',
+      'Scuola: '+val('rq-scuola'),
+      'Referente: '+val('rq-referente')+' — Tel: '+val('rq-tel'),
+      'Ragazzi: '+val('rq-numero')+' — Età/classi: '+val('rq-eta'),
+      'Gruppo: '+val('rq-gruppo'),
+      'Formula: '+val('rq-formula'),
+      'Periodo indicativo: '+val('rq-periodo')+' — Fascia: '+val('rq-fascia')
+    ];
+    var note=val('rq-note');
+    if(note)righe.push('Note: '+note);
+    var url='https://wa.me/393318743953?text='+encodeURIComponent(righe.join('\n'));
+    var w=window.open(url,'_blank'); // senza 'noopener' nelle opzioni: con quello window.open torna sempre null
+    if(w){try{w.opener=null;}catch(_){}}else window.location.href=url; // popup bloccato: stessa scheda
+  });
+})();
+</script>
 
 <section class="block">
   <div class="block-inner">
@@ -126,14 +301,6 @@
       <div class="zona-card"><strong>Cesano</strong></div>
       <div class="zona-card"><strong>Isola Farnese</strong></div>
     </div>
-  </div>
-</section>
-
-<section class="block cta-section">
-  <div class="block-inner">
-    <h2 class="section-title">Sei una scuola interessata?</h2>
-    <p>Scrivici per costruire insieme un progetto educativo su misura per i tuoi studenti.</p>
-    <a class="btn btn-primary" href="https://wa.me/393318743953?text=Ciao!%20Sono%20referente%20di%20una%20scuola%20e%20vorrei%20informazioni%20sui%20progetti%20educativi." target="_blank" rel="noopener">Contatta l'Accademia</a>
   </div>
 </section>
 
