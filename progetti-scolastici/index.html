@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<!-- KC-BUILD: sito-scuole v2.0 · 2026-10-20 · PROCEDURA PER LE SCUOLE (consegna Marco v1, 20 ott, contenuti approvati da Marco): sostituite le sezioni "Per le scuole" e "Cosa offriamo" con Il progetto, Cosa sviluppano i ragazzi (4 card), Le due formule (Prima Lezione 10 euro a ragazzo / Percorso su preventivo), Come funziona (5 passi + Regole chiare), Modulo di richiesta che compone il messaggio e apre WhatsApp 393318743953 (nessun dato salvato, nessun backend) e Documenti per la scuola (PDF modulo di adesione). Tenuti menu, testata, Dove operiamo e piede. Tolta la vecchia fascia "Sei una scuola interessata?": il suo posto lo prende il modulo. Meta description nuova. Stili del modulo e del bottone scuro in un style di questa sola pagina: styles.css non toccato. Foto dei gruppi scuola non ancora fornite: punti segnati con FOTO-SCUOLA. CUMULA v1.1 · 2026-09-07 · BONIFICA TERMINOLOGIA: nella scheda delle esperienze di una giornata il termine vietato sostituito con "in Accademia" ("palestra" resta ammesso solo in meta e alt per i motori di ricerca). Nessun altro testo toccato. CUMULA v1.0 · 2026-07-17 · voce nav "Libro" dopo Metodo → /libro-scalare-impossibile/. Nessun'altra modifica. NOTA: manca ancora "Calendario Accademia" (Cantiere A2). -->
+<!-- KC-BUILD: sito-scuole v2.0 · 2026-10-20 · PROCEDURA PER LE SCUOLE (consegna Marco v1, 20 ott, contenuti approvati da Marco): sostituite le sezioni "Per le scuole" e "Cosa offriamo" con Il progetto, Cosa sviluppano i ragazzi (4 card), Le due formule (Prima Lezione 10 euro a ragazzo / Percorso su preventivo), Come funziona (5 passi + Regole chiare), Modulo di richiesta che compone il messaggio e apre WhatsApp 393318743953 (nessun dato salvato, nessun backend) e Documenti per la scuola (PDF modulo di adesione). Tenuti menu, testata, Dove operiamo e piede. Tolta la vecchia fascia "Sei una scuola interessata?": il suo posto lo prende il modulo. Meta description nuova. Stili del modulo e del bottone scuro in un style di questa sola pagina: styles.css non toccato. Foto dei gruppi scuola (fornite da Marco 20 ott, ridotte a 1600px JPG 80, metadati tolti, volti dei ragazzi sfocati, istruttori nitidi): testata sala dall'alto (solo questa pagina), Il progetto sala da lontano, Come funziona parete arancione e soppalco. CUMULA v1.1 · 2026-09-07 · BONIFICA TERMINOLOGIA: nella scheda delle esperienze di una giornata il termine vietato sostituito con "in Accademia" ("palestra" resta ammesso solo in meta e alt per i motori di ricerca). Nessun altro testo toccato. CUMULA v1.0 · 2026-07-17 · voce nav "Libro" dopo Metodo → /libro-scalare-impossibile/. Nessun'altra modifica. NOTA: manca ancora "Calendario Accademia" (Cantiere A2). -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Progetti Scolastici | Arrampicata per Scuole Roma | Accademia RCC</title>
@@ -36,6 +36,11 @@
 <link rel="stylesheet" href="/assets/css/styles.css?v11">
 <style>
 /* Solo questa pagina (sito-scuole v2.0): formule, regole, modulo di richiesta, bottone scuro. */
+.page-hero{background-image:linear-gradient(180deg,rgba(26,22,20,.55) 0%,rgba(26,22,20,.78) 100%),url('/progetti-scolastici/img/scuola-sala-dallalto.jpg')}
+.scuole-foto{display:block;width:100%;height:auto;border-radius:var(--radius-md);margin-top:var(--space-4)}
+.come-grid{display:grid;grid-template-columns:1fr 340px;gap:var(--space-5);align-items:start}
+.come-foto{display:block;width:100%;height:auto;border-radius:var(--radius-md);margin-top:var(--space-5);position:sticky;top:24px}
+@media (max-width:900px){.come-grid{grid-template-columns:1fr;gap:0}.come-foto{position:static;max-height:520px;object-fit:cover;object-position:center 30%;margin-top:var(--space-4)}}
 .capacita-grid{grid-template-columns:repeat(2,1fr)}
 @media (max-width:600px){.capacita-grid{grid-template-columns:1fr}}
 .formule-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3);margin-top:var(--space-5)}
@@ -96,8 +101,7 @@
   </div>
 </section>
 
-<!-- FOTO-SCUOLA apertura: riscaldamento a braccia alzate (ragazzi di spalle), prima immagine della pagina, SENZA loading="lazy".
-     Da inserire quando Marco fornisce la foto: <img src="/assets/img/…" alt="…" width="1600" height="…"> -->
+<!-- Testata: foto della sala dall'alto (img/scuola-sala-dallalto.jpg, volto della ragazzina seduta sfocato), solo in questa pagina via .page-hero nello style qui sopra. La foto di sempre (img-accademia-gruppo.jpg) resta in styles.css per le altre pagine. -->
 
 <section class="block">
   <div class="block-inner">
@@ -106,7 +110,7 @@
       <h2 class="section-title">Arrampicata e Consapevolezza – Metodo KataClimb</h2>
       <p style="color: var(--ink-soft); line-height: 1.75; font-size: 16.5px; margin-bottom: 20px;">L'Accademia RCC porta nelle scuole il metodo KataClimb: l'arrampicata come strumento di crescita personale e di consapevolezza. La didattica è pratica: non c'è niente da studiare. I ragazzi sperimentano il metodo sulla parete e vedono subito i risultati. Bastano pochi incontri, ma vanno impostati e seguiti, perché dietro c'è una didattica precisa.</p>
       <p style="color: var(--ink-soft); line-height: 1.75; font-size: 16.5px;">Il progetto è già stato realizzato con l'<strong>Institut International Saint-Dominique</strong> di Roma e con un istituto Cepu.</p>
-      <!-- FOTO-SCUOLA "Il progetto": sala con le schede in mano ai ragazzi (loading="lazy") -->
+      <img class="scuole-foto" src="/progetti-scolastici/img/scuola-sala-da-lontano.jpg" width="1600" height="901" loading="lazy" alt="La sala dell'Accademia RCC vista da lontano durante una lezione con una scuola: i ragazzi alle pareti con le schede di lavoro">
     </div>
   </div>
 </section>
@@ -172,7 +176,7 @@
   <div class="block-inner">
     <p class="eyebrow">Come funziona</p>
     <h2 class="section-title">La procedura, passo per passo</h2>
-    <!-- FOTO-SCUOLA "Come funziona": vista dall'alto della sala intera (loading="lazy") -->
+    <div class="come-grid">
     <div class="steps">
       <div class="step">
         <div class="step-num">01</div>
@@ -194,6 +198,8 @@
         <div class="step-num">05</div>
         <div class="step-body"><h3>La lezione</h3><p>I docenti accompagnatori restano presenti e vigilano sul gruppo fuori dai momenti di attività. I trasferimenti sono a cura della scuola.</p></div>
       </div>
+    </div>
+    <img class="come-foto" src="/progetti-scolastici/img/scuola-parete-arancione.jpg" width="901" height="1600" loading="lazy" alt="Vista dall'alto della parete arancione e del soppalco dell'Accademia RCC durante una lezione con una scuola">
     </div>
     <div class="kataclimb-link-block regole-block">
       <h3>Regole chiare</h3>
