@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<!-- KC-BUILD: sito-scuole-come v1.0 · 2026-10-21 · PAGINA NUOVA (consegna Marco v2, 20-21 ott): procedura e richiesta dati tolte dalla prima pagina e portate qui, a un clic da /progetti-scolastici/. Spostati pari pari dalla v2.4: Come funziona, Regole chiare, modulo di richiesta (Supabase poi WhatsApp), Documenti. Modifiche: nuovo passo 04 "Acconto di conferma (percorsi)" 250 euro alla scelta delle date, saldo entro la prima giornata (passi ora 01-06); passo 05 "Moduli nell'area scuola e saldo, almeno 3 settimane prima": la scuola carica le foto dei moduli nella sua area del portale; Regole chiare + riga Percorsi acconto/saldo; campo Email del referente obbligatorio (type email, maxlength 200, deve contenere @) passato alla RPC come p_email e nel testo WhatsApp come riga Email; opzione Formula visibile "Mini percorso" con value "Percorso" (CHECK a DB); testo sopra il modulo corretto: la richiesta viene registrata (dalla v2.3 la frase "non salviamo nessun dato" non era più vera); Regole chiare: la riga "Percorso" diventa "Mini percorso" (Marco 21 ott); Documenti + documento generale Progetto_Arrampicata_e_Consapevolezza_KataClimb_ASD_RCC_v5.pdf; modulo di adesione: i link (passo 05 e Documenti) puntano al nuovo Modulo_Adesione_Partecipante_Progetto_Scuole_v2.pdf (domanda di adesione e tesseramento, caricamento nell'area scuola), il v1 resta nel repo; in fondo richiamo Saint-Dominique. MENÙ 7 VOCI (Marco 20 ott) come tutto il sito. Nessuna chiave segreta: solo la anon pubblica. -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Come funziona il progetto con le scuole | Accademia RCC</title>
+<meta name="description" content="Come funziona il progetto scuole dell'Accademia RCC: richiesta, telefonata, preventivo, acconto per i percorsi, moduli caricati nell'area scuola, regole e modulo di richiesta online.">
+<link rel="canonical" href="https://palestra-arrampicata-roma.it/progetti-scolastici/come-funziona/">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
+<link rel="shortcut icon" href="/assets/img/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+<meta name="theme-color" content="#ff6b1a">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://palestra-arrampicata-roma.it/progetti-scolastici/come-funziona/">
+<meta property="og:title" content="Come funziona il progetto con le scuole | Accademia RCC">
+<meta property="og:description" content="Passi, tempi, moduli e richiesta online per le scuole.">
+<meta property="og:image" content="https://palestra-arrampicata-roma.it/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="it_IT">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@marco_nescatelli">
+<meta name="twitter:image" content="https://palestra-arrampicata-roma.it/assets/img/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css?v12">
+<style>
+/* Solo questa pagina (come-funziona v1.0): passi, regole, modulo di richiesta, bottone scuro. Spostati da /progetti-scolastici/ v2.4. */
+.page-hero{background-image:linear-gradient(180deg,rgba(26,22,20,.55) 0%,rgba(26,22,20,.78) 100%),url('/progetti-scolastici/img/scuola-sala-dallalto.jpg')}
+.page-hero .eyebrow a{color:inherit;text-decoration:underline}
+.come-grid{display:grid;grid-template-columns:1fr 340px;gap:var(--space-5);align-items:start}
+.come-foto{display:block;width:100%;height:auto;border-radius:var(--radius-md);margin-top:var(--space-5);position:sticky;top:24px}
+@media (max-width:900px){.come-grid{grid-template-columns:1fr;gap:0}.come-foto{position:static;max-height:520px;object-fit:cover;object-position:center 30%;margin-top:var(--space-4)}}
+.regole-block h3{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--ink);margin-bottom:var(--space-1)}
+.regole-block ul{margin:0;padding-left:20px;color:var(--ink-soft);font-size:15.5px;line-height:1.65}
+.regole-block li{margin-top:6px}
+.step-body a,.doc-block a.doc-link{color:var(--orange-deep);font-weight:600;text-decoration:underline}
+.richiesta-form{display:grid;gap:18px;margin-top:var(--space-3)}
+.richiesta-form label{display:block;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.richiesta-form .facolt{font-weight:400;color:var(--ink-muted)}
+.richiesta-form .campo-nota{margin:6px 0 0;font-size:13.5px;line-height:1.5;color:var(--ink-muted)}
+.richiesta-form input,.richiesta-form select,.richiesta-form textarea{display:block;width:100%;box-sizing:border-box;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1.5px solid var(--line-strong);border-radius:10px;padding:12px 14px}
+.richiesta-form textarea{min-height:96px;resize:vertical}
+.richiesta-form input:focus,.richiesta-form select:focus,.richiesta-form textarea:focus{outline:none;border-color:var(--orange)}
+.richiesta-form .manca{border-color:#b91c1c;background:#fef2f2}
+.richiesta-errori{display:none;color:#b91c1c;background:#fef2f2;border:1px solid #fca5a5;border-radius:10px;padding:12px 14px;font-size:15px;line-height:1.5}
+.btn-scuro{background:var(--night);color:var(--paper);border-color:var(--night);width:100%;white-space:normal;cursor:pointer}
+.btn-scuro:hover{background:var(--night-soft);border-color:var(--night-soft);transform:translateY(-2px)}
+.richiesta-mail{text-align:center;font-size:15px;color:var(--ink-soft)}
+.richiesta-mail a{color:var(--orange-deep);font-weight:600}
+.doc-block{margin-top:var(--space-4)}
+.doc-block p{color:var(--ink-soft);font-size:15.5px;line-height:1.6}
+.doc-block p+p{margin-top:10px}
+.scuole-richiamo{text-align:center;color:var(--ink-soft);font-size:15.5px;line-height:1.6}
+.scuole-richiamo a{color:var(--orange-deep);font-weight:600;white-space:nowrap}
+</style>
+</head>
+
+<body>
+
+<header class="site-nav">
+  <div class="nav-wrap">
+    <a class="logo" href="/" aria-label="Accademia ArrampiKata RCC — Home">
+      <img src="/assets/img/logo-rcc.png" alt="Accademia ArrampiKata RCC" width="227" height="114">
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/percorsi-arrampicata-adulti/">Percorsi</a></li>
+        <li><a href="/metodo-kataclimb/">Metodo</a></li>
+        <li><a href="/progetti-scolastici/" class="active">Scuole</a></li>
+        <li><a href="https://kataclimb.com/orari.html" target="_blank" rel="noopener">Calendario</a></li>
+        <li><a href="/#contatti">Contatti</a></li>
+        <li><a href="https://wa.me/393318743953?text=Ciao!%20Vorrei%20informazioni%20sui%20progetti%20scolastici." class="cta" target="_blank" rel="noopener">Prenota</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="block-inner">
+    <p class="eyebrow"><a href="/progetti-scolastici/">Progetti scolastici</a></p>
+    <h1 class="page-title">Come funziona il progetto con le scuole</h1>
+    <p class="page-sub">Dalla richiesta alla lezione: passi, tempi, moduli e regole.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <p class="eyebrow">Come funziona</p>
+    <h2 class="section-title">La procedura, passo per passo</h2>
+    <div class="come-grid">
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-body"><h3>Richiesta, almeno 4 settimane prima</h3><p>Compilate il <a href="#richiesta">modulo qui sotto</a>: numero di ragazzi, età, periodo e fascia oraria indicativi.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-body"><h3>Telefonata con il responsabile</h3><p>Marco Nescatelli vi chiama per definire formula, giorno e orario.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-body"><h3>Preventivo</h3><p>Dopo la telefonata vi mandiamo il preventivo con la data concordata. La scuola lo conferma per iscritto.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-body"><h3>Acconto di conferma (percorsi)</h3><p>Per il mini percorso e per ogni percorso a più giornate, alla scelta delle date la scuola versa un acconto di conferma di 250 €. Con l'acconto date e istruttori sono riservati alla scuola. Il saldo va versato entro la prima giornata.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-body"><h3>Moduli nell'area scuola e saldo, almeno 3 settimane prima</h3><p>La scuola raccoglie dalle famiglie il <a href="/progetti-scolastici/Modulo_Adesione_Partecipante_Progetto_Scuole_v2.pdf" target="_blank" rel="noopener">modulo di adesione</a> firmato e, per i percorsi, la quota del ragazzo. Riceve un accesso alla sua area sul portale e <strong>carica lì le foto dei moduli</strong> (bastano le foto fatte con il telefono: i dati li trascriviamo noi). Per la Prima Lezione il saldo si versa con bonifico in unica soluzione entro la stessa data: la data è confermata con il saldo. Servono per il tesseramento di ogni ragazzo con l'ente di promozione sportiva, che dà la copertura assicurativa. I moduli mancanti o incompleti si completano fino a 7 giorni prima: dopo, chi non ha i documenti non partecipa, il gruppo sì.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">06</div>
+        <div class="step-body"><h3>La lezione</h3><p>I docenti accompagnatori restano presenti e vigilano sul gruppo fuori dai momenti di attività. I trasferimenti sono a cura della scuola.</p></div>
+      </div>
+    </div>
+    <img class="come-foto" src="/progetti-scolastici/img/scuola-parete-arancione.jpg" width="901" height="1600" loading="lazy" alt="Vista dall'alto della parete arancione e del soppalco dell'Accademia RCC durante una lezione con una scuola">
+    </div>
+    <div class="kataclimb-link-block regole-block">
+      <h3>Regole chiare</h3>
+      <ul>
+        <li>Da 15 a 25 ragazzi per gruppo. Oltre 25 si organizzano due gruppi.</li>
+        <li>Le quote si riferiscono ai ragazzi in lista e non sono rimborsabili per assenze individuali.</li>
+        <li>La scuola può spostare la data una volta, senza costi, fino a 14 giorni prima.</li>
+        <li><strong>Mini percorso</strong>: si concorda dopo la Prima Lezione, con il calendario intero fissato all'accettazione. La prima lezione del percorso è almeno 6 settimane dopo l'accettazione; moduli dei nuovi partecipanti e saldo entro 4 settimane prima.</li>
+        <li><strong>Percorsi</strong>: acconto di conferma 250 € alla scelta delle date, saldo entro la prima giornata.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block valori-bg" id="richiesta">
+  <div class="block-inner">
+    <div class="progetti-block">
+      <p class="eyebrow">Richiesta</p>
+      <h2 class="section-title">Chiedete la vostra data</h2>
+      <p style="color: var(--ink-soft); line-height: 1.7; font-size: 16px;">Compilate i campi e premete il bottone: registriamo la richiesta per potervi richiamare e si apre WhatsApp con il messaggio già scritto, voi lo inviate.</p>
+      <form class="richiesta-form" id="richiesta-form" novalidate>
+        <div><label for="rq-scuola">Nome della scuola</label><input type="text" id="rq-scuola" data-nome="Nome della scuola" required maxlength="200" autocomplete="organization"></div>
+        <div><label for="rq-referente">Referente: nome e cognome</label><input type="text" id="rq-referente" data-nome="Referente" required maxlength="150" autocomplete="name"></div>
+        <div><label for="rq-tel">Telefono del referente</label><input type="tel" id="rq-tel" data-nome="Telefono del referente" required maxlength="40" autocomplete="tel" inputmode="tel"></div>
+        <div><label for="rq-email">Email del referente</label><input type="email" id="rq-email" data-nome="Email del referente" required maxlength="200" autocomplete="email" inputmode="email"><p class="campo-nota">Serve per inviarvi l'accesso all'area scuola, dove caricherete i moduli.</p></div>
+        <div><label for="rq-numero">Numero di ragazzi</label><input type="number" id="rq-numero" data-nome="Numero di ragazzi" required min="1" step="1" inputmode="numeric"></div>
+        <div><label for="rq-eta">Età o classi dei ragazzi</label><input type="text" id="rq-eta" data-nome="Età o classi dei ragazzi" required maxlength="200" placeholder="Es. 11–12 anni, prima media"></div>
+        <div><label for="rq-gruppo">Classe intera o gruppo di interessati</label>
+          <select id="rq-gruppo" data-nome="Classe intera o gruppo di interessati" required>
+            <option value="">Scegli…</option><option>Classe intera</option><option>Gruppo di interessati</option><option>Più classi</option>
+          </select></div>
+        <div><label for="rq-formula">Formula</label>
+          <select id="rq-formula" data-nome="Formula" required>
+            <option value="">Scegli…</option><option>Prima Lezione</option><option value="Percorso">Mini percorso</option><option>Da valutare insieme</option>
+          </select></div>
+        <div><label for="rq-periodo">Periodo indicativo</label><input type="text" id="rq-periodo" data-nome="Periodo indicativo" required maxlength="200" placeholder="Es. seconda metà di novembre"></div>
+        <div><label for="rq-fascia">Fascia oraria indicativa</label>
+          <select id="rq-fascia" data-nome="Fascia oraria indicativa" required>
+            <option value="">Scegli…</option><option>Mattina 9–13</option><option>Primo pomeriggio 13–17</option>
+          </select></div>
+        <div><label for="rq-note">Note <span class="facolt">(facoltativo)</span></label><textarea id="rq-note" maxlength="2000"></textarea></div>
+        <div class="richiesta-errori" id="richiesta-errori" role="alert"></div>
+        <button type="submit" class="btn btn-scuro">Invia la richiesta su WhatsApp</button>
+        <p class="richiesta-mail">Preferite la mail? Scrivete a <a href="mailto:rccsegreteria@gmail.com?subject=Richiesta%20Progetto%20Scuole">rccsegreteria@gmail.com</a></p>
+      </form>
+      <div class="kataclimb-link-block doc-block">
+        <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 8px;">Documenti per la scuola</h3>
+        <p><a class="doc-link" href="/progetti-scolastici/Modulo_Adesione_Partecipante_Progetto_Scuole_v2.pdf" target="_blank" rel="noopener">Modulo di adesione del partecipante</a> (PDF): autorizzazione, consenso foto e video facoltativo, informativa privacy.</p>
+        <p><a class="doc-link" href="/progetti-scolastici/Progetto_Arrampicata_e_Consapevolezza_KataClimb_ASD_RCC_v5.pdf" target="_blank" rel="noopener">Il progetto «Arrampicata e Consapevolezza»</a> (PDF): il documento generale, da presentare in collegio docenti o al consiglio di classe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* Modulo richiesta scuole (v2.3, email dalla v1.0 di come-funziona): valida, salva la richiesta su Supabase (RPC inserisci_richiesta_scuola,
+   solo scrittura, nessuna lettura) e apre WhatsApp come prima. Se il salvataggio fallisce o supera
+   4 secondi WhatsApp si apre lo stesso: la richiesta non si perde mai. */
+(function(){
+  var form=document.getElementById('richiesta-form');
+  if(!form)return;
+  var box=document.getElementById('richiesta-errori');
+  var btn=form.querySelector('button[type=submit]');
+  var SB_URL='https://wbtougychlhnlcnonqge.supabase.co';
+  var SB_ANON='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndidG91Z3ljaGxobmxjbm9ucWdlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0MTQ0MTUsImV4cCI6MjA5MDk5MDQxNX0.QwYWbaOkquJCwOHV6e9w38bLGEO-iNzuH7mwBVgTa9E'; // chiave PUBBLICA anon (la stessa di kataclimb inizia.html), nessuna chiave segreta
+  var SALVA_MAX_MS=4000;
+  var inCorso=false;
+  function salvaRichiesta(dati){
+    // risolve sempre: errore, rete assente o oltre 4 secondi non fermano WhatsApp
+    return new Promise(function(fine){
+      var ctrl=('AbortController' in window)?new AbortController():null;
+      var t=setTimeout(function(){if(ctrl)ctrl.abort();fine(false);},SALVA_MAX_MS);
+      fetch(SB_URL+'/rest/v1/rpc/inserisci_richiesta_scuola',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','apikey':SB_ANON,'Authorization':'Bearer '+SB_ANON},
+        body:JSON.stringify(dati),
+        signal:ctrl?ctrl.signal:undefined
+      }).then(function(r){clearTimeout(t);if(!r.ok)console.warn('[richiesta scuola] salvataggio non riuscito: HTTP '+r.status);fine(r.ok);})
+        .catch(function(e){clearTimeout(t);console.warn('[richiesta scuola] salvataggio non riuscito:',e);fine(false);});
+    });
+  }
+  function val(id){return document.getElementById(id).value.trim();}
+  form.addEventListener('input',function(e){if(e.target.classList)e.target.classList.remove('manca');});
+  form.addEventListener('change',function(e){if(e.target.classList)e.target.classList.remove('manca');});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var mancano=[],primo=null;
+    form.querySelectorAll('[required]').forEach(function(el){
+      var v=el.value.trim(),ok=v!=='';
+      if(ok&&el.id==='rq-numero'){var n=Number(v);ok=Number.isInteger(n)&&n>=1;}
+      if(ok&&el.id==='rq-email')ok=v.indexOf('@')>0&&v.indexOf('@')<v.length-1;
+      el.classList.toggle('manca',!ok);
+      if(!ok){mancano.push(el.getAttribute('data-nome'));if(!primo)primo=el;}
+    });
+    if(mancano.length){
+      box.textContent='Manca ancora: '+mancano.join(', ')+'.';
+      box.style.display='block';
+      primo.focus();
+      return;
+    }
+    box.style.display='none';
+    var righe=[
+      'Richiesta Progetto Scuole',
+      'Scuola: '+val('rq-scuola'),
+      'Referente: '+val('rq-referente')+' — Tel: '+val('rq-tel'),
+      'Email: '+val('rq-email'),
+      'Ragazzi: '+val('rq-numero')+' — Età/classi: '+val('rq-eta'),
+      'Gruppo: '+val('rq-gruppo'),
+      'Formula: '+document.getElementById('rq-formula').selectedOptions[0].text,
+      'Periodo indicativo: '+val('rq-periodo')+' — Fascia: '+val('rq-fascia')
+    ];
+    var note=val('rq-note');
+    if(note)righe.push('Note: '+note);
+    var url='https://wa.me/393318743953?text='+encodeURIComponent(righe.join('\n'));
+    if(inCorso)return;
+    inCorso=true;btn.disabled=true;var testoBtn=btn.textContent;btn.textContent='Invio in corso…';
+    // la scheda si apre SUBITO, dentro il click: dopo l'attesa del salvataggio Safari bloccherebbe il popup
+    var w=window.open('','_blank');
+    if(w){try{w.opener=null;w.document.title='WhatsApp';w.document.body.textContent='Apro WhatsApp…';}catch(_){}}
+    salvaRichiesta({
+      p_scuola:val('rq-scuola'),p_referente:val('rq-referente'),p_telefono:val('rq-tel'),p_email:val('rq-email'),
+      p_numero_ragazzi:Number(val('rq-numero')),p_eta_classi:val('rq-eta'),
+      p_tipo_gruppo:val('rq-gruppo'),p_formula:val('rq-formula'),
+      p_periodo:val('rq-periodo'),p_fascia:val('rq-fascia'),
+      p_note:note||null,p_pagina:location.pathname
+    }).then(function(){
+      inCorso=false;btn.disabled=false;btn.textContent=testoBtn;
+      if(w&&!w.closed){try{w.location.href=url;return;}catch(_){}}
+      window.location.href=url; // popup bloccato o scheda chiusa: stessa scheda
+    });
+  });
+})();
+</script>
+
+<section class="block">
+  <div class="block-inner">
+    <p class="scuole-richiamo">Il progetto è già inserito nella didattica dell'Institut Saint-Dominique di Roma. <a href="/progetti-scolastici/">Torna al progetto →</a></p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p><strong>Accademia ArrampiKata RCC</strong> — Via Cassia 1634, Roma La Storta</p>
+  <p>Telefono <a href="tel:+390630890746">+39 06 3089 0746</a> · <a href="mailto:rccsegreteria@gmail.com">rccsegreteria@gmail.com</a></p>
+  <p>Altro: <a href="/corso-senior-over-60/">Senior 60+</a> · <a href="/libro-scalare-impossibile/">Libro</a> · <a href="/katacamp-arrampicata-estero/">Viaggi</a> · <a href="/diventa-istruttore/">Diventa Istruttore</a> · <a href="https://kataclimb.com/eventi.html" target="_blank" rel="noopener">Eventi</a></p>
+  <p style="margin-top: 16px;">© 1992–2026 Accademia RCC · Metodo KataClimb® di Marco Nescatelli</p>
+</footer>
+
+<a href="https://wa.me/393318743953?text=Ciao!%20Vorrei%20avere%20informazioni." class="wa-float" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+</body>
+</html>
