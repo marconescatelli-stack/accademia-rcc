@@ -203,10 +203,17 @@ header.site-nav {
   align-items: center;
 }
 .nav-links a {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--ink-soft);
   white-space: nowrap;
+}
+/* MENÙ 7 VOCI (Marco 20 ott 2026): da laptop la riga non va mai a capo; sotto 860px resta il menù centrato a capo */
+@media (min-width: 861px) {
+  .nav-links { flex-wrap: nowrap; }
+}
+@media (min-width: 1200px) {
+  .nav-links a { font-size: 16px; }
 }
 .nav-links a:hover { color: var(--orange-deep); }
 .nav-links a.active { color: var(--ink); }

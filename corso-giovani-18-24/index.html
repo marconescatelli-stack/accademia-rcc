@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+<!-- KC-BUILD: sito-giovani v1.7 · 2026-10-21 · MENÙ 7 VOCI (Marco 20 ott): testata ridotta a Home · Percorsi · Metodo · Scuole · Calendario · Contatti · Prenota (prima 12 voci a 14px che da laptop andavano su due righe). "Scuole" → /progetti-scolastici/, "Calendario" → kataclimb.com/orari.html in nuova scheda, "Contatti" → /#contatti. Senior 60+, Libro, Viaggi, Diventa Istruttore ed Eventi spostati nel piede, riga "Altro": nessuna pagina cancellata, nessun URL cambiato. styles.css?v12 (voci 15px, 16px da 1200px, una sola riga da 861px). Nient'altro. CUMULA sito-giovani v1.6 (riga sotto). -->
 <!-- KC-BUILD: sito-giovani v1.6 · 2026-09-15 · CORDA DA SECONDO (Marco 15 set): la corda NON è rimandata — la pratica da secondo c'è dal primo giorno, sono le procedure da primo che si scelgono come integrazione. Corretti section-lead e investo-note; mai dare la percezione di aver tolto qualcosa. NIENT'ALTRO toccato. CUMULA v1.5 · 2026-09-15 · SALA + CORDA + FAMIGLIA (Marco 15 set): investo-main dice esplicitamente "abbonamento Sala con Monitor incluso (90€/mese da listino)"; investo-note: promessa didattica "in due mesi impari le procedure dell'Intro, in due quelle dell'Evo — a molti bastano 4 lezioni" (impegno, non tetto: l'integrazione si paga finché il corso corda è attivo); sconto famiglia −25% → −10% (nota + blocco Famiglia); meta/og description "abbonamento Sala con Monitor incluso". CUMULA v1.4 · 2026-09-14 · ORDINE PILLOLE PER ETÀ (Marco 14 set): Bambini · Ragazzi · Genitori · Giovani · Adulti · Senior 60+ · Veterani RCC (veterani ultimi, etichetta "Veterani RCC"). NIENT'ALTRO toccato. CUMULA sito-giovani v1.3 · 2026-09-14 · PREZZO 140→110€/mese (decisione Marco 14 set): corda spostata più avanti, integrazione Intro +30 / Evo +40 €/mese solo nei mesi con lezioni di corda (schema Senior). Toccati: meta description, og:description, section-lead (corda dopo), investo-main, investo-note. NIENT'ALTRO. CUMULA v1.2 · 2026-09-14 · PILLOLE LEGGIBILI + GENITORI (Marco 14 set): la barra di scelta sopra la foto hero aveva testo grigio su foto scura, illeggibile finché non ci passavi sopra → ora testo bianco su fondo scuro traslucido, hover bianco/terracotta; aggiunta pillola 'Genitori' dopo Ragazzi → blocco Corso Genitori (#corso-genitori) nella pagina bambini/ragazzi. NIENT'ALTRO toccato. CUMULA sito-giovani v1.1 · 2026-09-07 · ORARIO: la lezione settimanale passa da VENERDI 18-19 a GIOVEDI 21-22, allineata a corsi_attivi_settimanali (Giovani = giovedi 21:00-22:00, attivo). Corretti titolo di sezione, lead con l'orario, meta description e og description. Lo slot del venerdi 18-19 passa al nuovo Corso Senior KataClimb (over 60). Aggiunte anche la voce nav "Senior 60+" dopo Percorsi e la pill Senior nella barra di scelta. Prezzi invariati (140€/mese, Prima Lezione Giovani 20€). NB: questa pagina portava ancora la sigla KC-BUILD "sito-percorsi", ereditata dal clone; da qui in avanti e "sito-giovani". CUMULA sito-percorsi v1.2 · 2026-08-31 · SEZIONE CORSO GIOVANI KATACLIMB 18-24: nuovo blocco #corso-giovani tra Percorso Corda e Bambini/Ragazzi (venerdi' 18-19, Sala con Monitor, percorso Open->Advance->manovre corda, passaggio ai gruppi avanzati su Kata certificati) + CTA 'Prenota la Prima Lezione Giovani 20€' -> kataclimb.com/inizia-giovani.html; prezzo giovani aggiunto nella CTA finale e in meta description. CUMULA v1.1 · 2026-07-17 · voce nav "Libro" dopo Metodo → /libro-scalare-impossibile/. CUMULA v1.0 (riga sotto). -->
 <!-- KC-BUILD: sito-percorsi v1.0 · 2026-07-15 · voce nav "Calendario Accademia" dopo Percorsi → kataclimb.com/orari.html (Cantiere A2, porta 2/6). Nessun'altra modifica. Base: pagina live 15 lug. -->
 <meta charset="UTF-8">
@@ -34,7 +35,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/styles.css?v11">
+<link rel="stylesheet" href="/assets/css/styles.css?v12">
 <style>
 /* Investimento — prezzo in coda a ogni corso */
 .investo{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
@@ -80,14 +81,9 @@
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/percorsi-arrampicata-adulti/" class="active">Percorsi</a></li>
-        <li><a href="/corso-senior-over-60/">Senior 60+</a></li>
-        <li><a href="https://kataclimb.com/orari.html" target="_blank" rel="noopener">Calendario Accademia</a></li>
         <li><a href="/metodo-kataclimb/">Metodo</a></li>
-        <li><a href="/libro-scalare-impossibile/">Libro</a></li>
-        <li><a href="/katacamp-arrampicata-estero/">Viaggi</a></li>
-        <li><a href="/diventa-istruttore/">Diventa Istruttore</a></li>
-        <li><a href="/progetti-scolastici/">Progetti Scuole</a></li>
-        <li><a href="https://kataclimb.com/eventi.html" target="_blank" rel="noopener">Eventi</a></li>
+        <li><a href="/progetti-scolastici/">Scuole</a></li>
+        <li><a href="https://kataclimb.com/orari.html" target="_blank" rel="noopener">Calendario</a></li>
         <li><a href="/#contatti">Contatti</a></li>
         <li><a href="https://wa.me/393318743953?text=Ciao!%20Vorrei%20prenotare%20una%20lezione%20di%20prova." class="cta" target="_blank" rel="noopener">Prenota</a></li>
       </ul>
@@ -175,6 +171,7 @@
 <footer class="site-footer">
   <p><strong>Accademia ArrampiKata RCC</strong> — Via Cassia 1634, Roma La Storta</p>
   <p>Telefono <a href="tel:+390630890746">+39 06 3089 0746</a> · <a href="mailto:rccsegreteria@gmail.com">rccsegreteria@gmail.com</a></p>
+  <p>Altro: <a href="/corso-senior-over-60/">Senior 60+</a> · <a href="/libro-scalare-impossibile/">Libro</a> · <a href="/katacamp-arrampicata-estero/">Viaggi</a> · <a href="/diventa-istruttore/">Diventa Istruttore</a> · <a href="https://kataclimb.com/eventi.html" target="_blank" rel="noopener">Eventi</a></p>
   <p style="margin-top: 16px;">© 1992–2026 Accademia RCC · Metodo KataClimb® di Marco Nescatelli</p>
 </footer>
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+<!-- KC-BUILD: sito-index v1.8 · 2026-10-21 · MENÙ 7 VOCI (Marco 20 ott): testata ridotta a Home · Percorsi · Metodo · Scuole · Calendario · Contatti · Prenota (prima 12 voci a 14px che da laptop andavano su due righe). "Scuole" → /progetti-scolastici/, "Calendario" → kataclimb.com/orari.html in nuova scheda, "Contatti" → /#contatti. Senior 60+, Libro, Viaggi, Diventa Istruttore ed Eventi spostati nel piede, riga "Altro": nessuna pagina cancellata, nessun URL cambiato. styles.css?v12 (voci 15px, 16px da 1200px, una sola riga da 861px). Nient'altro. CUMULA sito-index v1.7 (riga sotto). -->
 <!-- KC-BUILD: sito-index v1.7 · 2026-09-14 · CARD GENITORI (Marco 14 set): sesta card nella griglia per età, dopo Ragazzi, stesso markup, → /corsi-arrampicata-bambini/#corso-genitori, Prima lezione 20€. Foto placeholder photo-corso-rcc.jpg (stessa degli Adulti) DA SOSTITUIRE con una foto genitori+figli. NIENT'ALTRO toccato. CUMULA v1.6 · 2026-09-07 · FOTO SENIOR: la card Senior passa dal placeholder photo-corso-rcc.jpg alla foto vera photo-senior-rcc.jpg (959x539, 167 KB). La card Adulti resta su photo-corso-rcc.jpg, che e sempre stata la sua. Alt invariato. CUMULA v1.5 (riga sotto). -->
 <!-- KC-BUILD: sito-index v1.5 · 2026-09-07 · SENIOR: voce nav "Senior 60+" dopo Percorsi, card Senior over 60 nella griglia per eta (subito dopo Giovani, stesso markup, foto placeholder photo-corso-rcc.jpg da sostituire), section-lead "Adulti, giovani, senior, bambini e ragazzi", senior over 60 nell'elenco corsi di meta e og description. Card Giovani: la lezione settimanale passa dal venerdi al GIOVEDI (allineata a corsi_attivi_settimanali: giovedi 21-22). Prezzi Prima Lezione invariati; il Senior entra dalla Prima Lezione Adulti a 25€. Con 12 voci la nav su desktop stretto non stava piu in una riga: aggiunto flex-wrap:wrap alla regola base .nav-links in styles.css (sotto 860px andava gia a capo, il font resta 13px, minimo consentito). Cache-buster del CSS condiviso portato a ?v11 su tutte le pagine: la home era rimasta indietro a ?v9 mentre le altre 11 erano gia a ?v10. Bonifica terminologia: "Non siamo una palestra qualsiasi" -> "Non siamo un centro di arrampicata qualsiasi" (termine vietato nei testi di pagina; resta legittimo in meta keywords e JSON-LD, che sono SEO). CUMULA v1.4 (riga sotto). -->
 <!-- KC-BUILD: sito-index v1.4 · 2026-09-02 · PAGINE PER GRUPPO: le 5 card per età linkano le pagine dedicate (/percorsi-arrampicata-adulti/, /corso-giovani-18-24/, /corsi-arrampicata-bambini/, /corsi-arrampicata-ragazzi/ e #expert); le ancore #corso-giovani e #bambini-ragazzi non esistono più. RICHIEDE le 5 pagine. CUMULA v1.3 · 2026-08-31 · CORSO GIOVANI 18-24 IN HOME: card "Giovani 18-24" nella griglia per età (link /percorsi-arrampicata-adulti/#corso-giovani, prima lezione 20€), prezzo giovani aggiunto in CTA Prenota, meta description e OG description. RICHIEDE percorsi v1.2 live (ancora #corso-giovani). CUMULA v1.2 (riga sotto). -->
@@ -41,7 +42,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/assets/css/styles.css?v11">
+<link rel="stylesheet" href="/assets/css/styles.css?v12">
 
 <!-- Schema.org LocalBusiness -->
 <script type="application/ld+json">
@@ -85,15 +86,10 @@
       <ul class="nav-links">
         <li><a href="/" class="active">Home</a></li>
         <li><a href="/percorsi-arrampicata-adulti/">Percorsi</a></li>
-        <li><a href="/corso-senior-over-60/">Senior 60+</a></li>
-        <li><a href="https://kataclimb.com/orari.html" target="_blank" rel="noopener">Calendario Accademia</a></li>
         <li><a href="/metodo-kataclimb/">Metodo</a></li>
-        <li><a href="/libro-scalare-impossibile/">Libro</a></li>
-        <li><a href="/katacamp-arrampicata-estero/">Viaggi</a></li>
-        <li><a href="/diventa-istruttore/">Diventa Istruttore</a></li>
-        <li><a href="/progetti-scolastici/">Progetti Scuole</a></li>
-        <li><a href="https://kataclimb.com/eventi.html" target="_blank" rel="noopener">Eventi</a></li>
-        <li><a href="#contatti">Contatti</a></li>
+        <li><a href="/progetti-scolastici/">Scuole</a></li>
+        <li><a href="https://kataclimb.com/orari.html" target="_blank" rel="noopener">Calendario</a></li>
+        <li><a href="/#contatti">Contatti</a></li>
         <li><a href="https://wa.me/393318743953?text=Ciao!%20Vorrei%20prenotare%20una%20lezione%20di%20prova." class="cta" target="_blank" rel="noopener">Prenota</a></li>
       </ul>
     </nav>
@@ -539,6 +535,7 @@
 <footer class="site-footer">
   <p><strong>Accademia ArrampiKata RCC</strong> — Via Cassia 1634, Roma La Storta</p>
   <p>Telefono <a href="tel:+390630890746">+39 06 3089 0746</a> · <a href="mailto:rccsegreteria@gmail.com">rccsegreteria@gmail.com</a></p>
+  <p>Altro: <a href="/corso-senior-over-60/">Senior 60+</a> · <a href="/libro-scalare-impossibile/">Libro</a> · <a href="/katacamp-arrampicata-estero/">Viaggi</a> · <a href="/diventa-istruttore/">Diventa Istruttore</a> · <a href="https://kataclimb.com/eventi.html" target="_blank" rel="noopener">Eventi</a></p>
   <p style="margin-top: 16px;">© 1992–2026 Accademia RCC · Metodo KataClimb® di Marco Nescatelli</p>
 </footer>
 
