@@ -1267,3 +1267,210 @@ footer.site-footer a:hover { color: var(--orange); }
   .nav-links a { font-size: 13px; }
   .nav-links a.cta { padding: 8px 16px; }
 }
+
+/* ============================================================
+   4b. MENU A ISCRIZIONE CON TENDINE (Marco, 21–23 ott 2026)
+   Stessa lingua del sito: le voci sono un'iscrizione in
+   Playfair Display (il serif dei titoli) maiuscolo spaziato,
+   dentro una fascia crema chiusa da doppia linea sopra e sotto,
+   come su una pietra miliare. Tendine in Inter (il testo del
+   sito). Bottone arancio a pillola come gli altri bottoni.
+   La sezione 4 resta come base: qui si sovrascrive l'aspetto.
+   Script: /assets/js/menu.js
+   ============================================================ */
+header.site-nav {
+  background: var(--paper);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 0;
+  box-shadow: 0 8px 22px rgba(28, 25, 23, 0.08);
+}
+header.site-nav .nav-wrap {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0 12px;
+  padding-top: 14px;
+  padding-bottom: 0;
+}
+header.site-nav .logo { margin-right: auto; }
+header.site-nav .logo img { height: 48px; }
+
+/* bottone: identico ai bottoni primari del sito */
+header.site-nav .nav-prenota {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 26px;
+  border-radius: var(--radius-pill);
+  background: var(--orange);
+  color: var(--paper);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: background var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+}
+header.site-nav .nav-prenota:hover { background: var(--orange-deep); color: var(--paper); transform: translateY(-1px); }
+header.site-nav .nav-toggle { display: none; }
+
+/* la fascia dell'iscrizione: crema, doppia linea sopra e sotto, a tutta larghezza */
+header.site-nav .nav-wrap > nav {
+  flex-basis: 100%;
+  width: 100%;
+  margin-top: 14px;
+  padding: 5px 0;
+  /* doppia linea sopra e sotto + fondo crema, tutto a tutta larghezza dello schermo */
+  border-image: linear-gradient(to bottom,
+      var(--ink) 0 1px, var(--cream) 1px 4px, var(--ink) 4px 5px,
+      var(--cream) 5px calc(100% - 5px),
+      var(--ink) calc(100% - 5px) calc(100% - 4px), var(--cream) calc(100% - 4px) calc(100% - 1px), var(--ink) calc(100% - 1px) 100%)
+    fill 0 / 0 / 0 100vw;
+}
+header.site-nav .nav-links {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+header.site-nav .nav-links > li { position: relative; display: flex; align-items: center; }
+/* rombo inciso tra una voce e l'altra */
+header.site-nav .nav-links > li + li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin: 0 2px;
+  background: var(--terracotta);
+  transform: rotate(45deg);
+  flex: none;
+}
+
+/* la voce */
+header.site-nav .stone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 19px clamp(10px, 1.6vw, 22px) 17px;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  transition: color var(--t-base) var(--ease);
+}
+header.site-nav .stone::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 9px;
+  height: 2px;
+  background: var(--orange);
+  transition: left var(--t-base) var(--ease), right var(--t-base) var(--ease);
+}
+header.site-nav .stone:hover,
+header.site-nav .has-sub:hover > .stone,
+header.site-nav .has-sub.open > .stone { color: var(--terracotta); }
+header.site-nav .stone:hover::after,
+header.site-nav .has-sub:hover > .stone::after,
+header.site-nav .has-sub.open > .stone::after,
+header.site-nav .stone.active::after { left: clamp(10px, 1.6vw, 22px); right: clamp(10px, 1.6vw, 22px); }
+header.site-nav .stone.active { color: var(--terracotta); }
+header.site-nav .stone:focus-visible { outline: 2px solid var(--orange); outline-offset: -4px; }
+header.site-nav .stone .freccia {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0;
+  color: var(--terracotta);
+  transition: transform var(--t-base) var(--ease);
+}
+header.site-nav .has-sub.open > .stone .freccia { transform: rotate(180deg); }
+
+/* la tendina: carta bianca, testo del sito */
+header.site-nav .sub {
+  display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  min-width: 240px;
+  z-index: 120;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  background: var(--paper);
+  border-top: 2px solid var(--orange);
+  box-shadow: 0 18px 40px rgba(28, 25, 23, 0.16);
+}
+header.site-nav .sub a {
+  display: block;
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+header.site-nav .sub a:hover { color: var(--orange-deep); background: var(--cream); }
+header.site-nav .sub a.active { color: var(--terracotta); font-weight: 600; box-shadow: inset 3px 0 0 var(--orange); }
+header.site-nav .has-sub.open > .sub { display: block; }
+header.site-nav .has-sub::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 8px; }
+@media (hover: hover) and (min-width: 861px) {
+  header.site-nav .has-sub:hover > .sub,
+  header.site-nav .has-sub:focus-within > .sub { display: block; }
+}
+header.site-nav .nav-links > li:last-child .sub { left: auto; right: 0; }
+
+@media (max-width: 1100px) and (min-width: 861px) {
+  header.site-nav .stone { font-size: 15px; letter-spacing: 0.12em; }
+}
+
+/* ——— telefono e tablet stretto ——— */
+@media (max-width: 860px) {
+  header.site-nav .nav-wrap { padding-top: 12px; padding-bottom: 12px; }
+  header.site-nav .logo img { height: 40px; }
+  header.site-nav .nav-prenota { padding: 10px 18px; font-size: 14px; }
+  header.site-nav .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 14px;
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: none;
+    border: 0;
+    box-shadow: inset 0 1px 0 var(--ink), inset 0 -1px 0 var(--ink);
+    cursor: pointer;
+  }
+  header.site-nav .nav-toggle .barre { display: inline-block; width: 16px; height: 2px; background: currentColor; box-shadow: 0 -5px 0 currentColor, 0 5px 0 currentColor; }
+  header.site-nav.menu-aperto .nav-toggle .barre { background: transparent; box-shadow: none; }
+  header.site-nav.menu-aperto .nav-toggle .barre::before { content: "✕"; display: block; margin-top: -8px; font-size: 14px; font-family: var(--font-sans); }
+  .js header.site-nav .nav-wrap > nav { display: none; }
+  header.site-nav.menu-aperto .nav-wrap > nav { display: block; }
+  header.site-nav .nav-wrap > nav { margin-top: 14px; margin-bottom: -12px; padding: 10px 0 14px; max-height: calc(100vh - 80px); overflow-y: auto; }
+  header.site-nav .nav-links { flex-direction: column; align-items: stretch; }
+  header.site-nav .nav-links > li { flex-direction: column; align-items: stretch; }
+  header.site-nav .nav-links > li + li::before { display: none; }
+  header.site-nav .nav-links > li + li { border-top: 1px solid var(--line-strong); }
+  header.site-nav .stone { justify-content: space-between; width: 100%; padding: 17px 4px 15px; font-size: 17px; }
+  header.site-nav .stone::after { bottom: 8px; }
+  header.site-nav .stone:hover::after,
+  header.site-nav .has-sub.open > .stone::after,
+  header.site-nav .stone.active::after { left: 4px; right: auto; width: 40px; }
+  header.site-nav .sub { position: static; min-width: 0; margin: 0 0 10px; padding: 0; border-top: 0; box-shadow: none; background: transparent; }
+  header.site-nav .sub a { padding: 11px 4px 11px 18px; font-size: 16px; }
+  header.site-nav .sub a:hover { background: transparent; }
+  header.site-nav .has-sub::after { display: none; }
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<!-- KC-BUILD: sito-scuole v3.0 · 2026-10-21 · PAGINA SCUOLE IN DUE PARTI (consegna Marco v2, 20-21 ott): questa resta la pagina da mandare alle scuole (testata, Il progetto, Cosa sviluppano i ragazzi, Le due formule, Dove operiamo, piede); Come funziona, Regole chiare, modulo di richiesta e Documenti spostati pari pari in /progetti-scolastici/come-funziona/ (nuova, sito-scuole-come v1.0). Al loro posto il blocco "Volete provare?" con il bottone scuro "Richiedi informazioni" -> come-funziona/#richiesta e il link "Come funziona, tempi e moduli". Formule: la seconda card diventa "Mini percorso" (4 giornate per classe, su preventivo, acconto di conferma 250 euro alla scelta delle date, saldo entro la prima giornata). Nuova sezione "Scuole con cui lavoriamo" (Marco 21 ott): card Institut International Saint-Dominique, riga grigia Istituto Cepu; niente loghi, docenti o numeri di ragazzi. Dove operiamo su sfondo crema per alternare. Meta description invariata. MENÙ 7 VOCI (Marco 20 ott): Home · Percorsi · Metodo · Scuole · Calendario · Contatti · Prenota, le altre voci nel piede (riga Altro), styles.css?v12. CUMULA v2.4 · 2026-10-20 · LIMITI DEI CAMPI = LIMITI DELLA RPC (Marco 20 ott): maxlength scuola 200, referente 150, telefono 40, eta'/classi 200, periodo 200, note 2000 (prima 600), gli stessi di inserisci_richiesta_scuola, cosi' il salvataggio non viene rifiutato per testo troppo lungo. Nient'altro. CUMULA v2.3 · 2026-10-20 · RICHIESTA SALVATA SU SUPABASE (Marco 20 ott): al click su "Invia la richiesta su WhatsApp", dopo la validazione, POST alla RPC inserisci_richiesta_scuola (SECURITY DEFINER, EXECUTE ad anon, verificata a DB) con la chiave pubblica anon (la stessa di kataclimb inizia.html), poi WhatsApp come prima. Errore, rete assente o oltre 4 secondi: WhatsApp si apre lo stesso. La scheda si apre subito al click e va su wa.me dopo il salvataggio (Safari blocca i popup aperti dopo un'attesa); se il popup e' bloccato, stessa scheda. Bottone spento durante l'invio. Nessuna lettura dal DB, nessun altro dato. CUMULA v2.2 · 2026-10-20 · DOVE OPERIAMO, 3 ZONE IN PIU' (Marco 20 ott): dopo La Storta aggiunte Giustiniana, Tomba di Nerone, Cassia, stesso stile .zona-card; le 6 di prima restano. 9 card. Nient'altro. CUMULA v2.1 · 2026-10-20 · PASSO 03 SENZA SCADENZA (decisione Marco 20 ott): titolo "Preventivo e accettazione, entro 7 giorni" -> "Preventivo"; testo -> "Dopo la telefonata vi mandiamo il preventivo con la data concordata. La scuola lo conferma per iscritto." Tolti i 7 giorni per accettare il preventivo e la data che si sblocca dopo. Restano i 7 giorni del passo 04 (moduli mancanti completabili fino a 7 giorni prima). Nient'altro. CUMULA v2.0 · 2026-10-20 · PROCEDURA PER LE SCUOLE (consegna Marco v1, 20 ott, contenuti approvati da Marco): sostituite le sezioni "Per le scuole" e "Cosa offriamo" con Il progetto, Cosa sviluppano i ragazzi (4 card), Le due formule (Prima Lezione 10 euro a ragazzo / Percorso su preventivo), Come funziona (5 passi + Regole chiare), Modulo di richiesta che compone il messaggio e apre WhatsApp 393318743953 (nessun dato salvato, nessun backend) e Documenti per la scuola (PDF modulo di adesione). Tenuti menu, testata, Dove operiamo e piede. Tolta la vecchia fascia "Sei una scuola interessata?": il suo posto lo prende il modulo. Meta description nuova. Stili del modulo e del bottone scuro in un style di questa sola pagina: styles.css non toccato. Foto dei gruppi scuola (fornite da Marco 20 ott, ridotte a 1600px JPG 80, metadati tolti, volti dei ragazzi sfocati, istruttori nitidi): testata sala dall'alto (solo questa pagina), Il progetto sala da lontano, Come funziona parete arancione e soppalco. CUMULA v1.1 · 2026-09-07 · BONIFICA TERMINOLOGIA: nella scheda delle esperienze di una giornata il termine vietato sostituito con "in Accademia" ("palestra" resta ammesso solo in meta e alt per i motori di ricerca). Nessun altro testo toccato. CUMULA v1.0 · 2026-07-17 · voce nav "Libro" dopo Metodo → /libro-scalare-impossibile/. Nessun'altra modifica. NOTA: manca ancora "Calendario Accademia" (Cantiere A2). -->
+<!-- KC-BUILD: menu-iscrizione v1.0 · 2026-10-23 · MENU A ISCRIZIONE CON TENDINE (Marco 21–23 ott: "evidente come roccia incisa", "impatto e definizione", poi "accozzaglia di stili" sulle pietre → stessa lingua del sito). Voci in Playfair Display maiuscolo spaziato (il serif dei titoli del sito) dentro una fascia crema con doppia linea sopra e sotto, come un'iscrizione su pietra miliare; separatori a rombo; sezione attuale in terracotta con linea arancio. Tendine bianche in Inter (il testo del sito). PERCORSI ▾ (Adulti, Giovani 18–24, Senior 60+, Bambini 6–11, Ragazzi 12–17, Veterani) · CALENDARIO · EVENTI ▾ (Eventi, Viaggi KataCamp) · METODO ▾ (Metodo KataClimb, Libro, Diventa Istruttore) · SCUOLE · CONTATTI; bottone arancio a pillola come i bottoni del sito, stesso testo e link WhatsApp di prima della pagina; telefono: tasto MENU. Tolta la voce Home (il logo porta alla home). Riga "Altro" nel piede invariata. styles.css?v13 (blocco 4b in fondo) + /assets/js/menu.js. Nessun font nuovo, nessun testo di pagina toccato. --><!-- KC-BUILD: sito-scuole v3.0 · 2026-10-21 · PAGINA SCUOLE IN DUE PARTI (consegna Marco v2, 20-21 ott): questa resta la pagina da mandare alle scuole (testata, Il progetto, Cosa sviluppano i ragazzi, Le due formule, Dove operiamo, piede); Come funziona, Regole chiare, modulo di richiesta e Documenti spostati pari pari in /progetti-scolastici/come-funziona/ (nuova, sito-scuole-come v1.0). Al loro posto il blocco "Volete provare?" con il bottone scuro "Richiedi informazioni" -> come-funziona/#richiesta e il link "Come funziona, tempi e moduli". Formule: la seconda card diventa "Mini percorso" (4 giornate per classe, su preventivo, acconto di conferma 250 euro alla scelta delle date, saldo entro la prima giornata). Nuova sezione "Scuole con cui lavoriamo" (Marco 21 ott): card Institut International Saint-Dominique, riga grigia Istituto Cepu; niente loghi, docenti o numeri di ragazzi. Dove operiamo su sfondo crema per alternare. Meta description invariata. MENÙ 7 VOCI (Marco 20 ott): Home · Percorsi · Metodo · Scuole · Calendario · Contatti · Prenota, le altre voci nel piede (riga Altro), styles.css?v12. CUMULA v2.4 · 2026-10-20 · LIMITI DEI CAMPI = LIMITI DELLA RPC (Marco 20 ott): maxlength scuola 200, referente 150, telefono 40, eta'/classi 200, periodo 200, note 2000 (prima 600), gli stessi di inserisci_richiesta_scuola, cosi' il salvataggio non viene rifiutato per testo troppo lungo. Nient'altro. CUMULA v2.3 · 2026-10-20 · RICHIESTA SALVATA SU SUPABASE (Marco 20 ott): al click su "Invia la richiesta su WhatsApp", dopo la validazione, POST alla RPC inserisci_richiesta_scuola (SECURITY DEFINER, EXECUTE ad anon, verificata a DB) con la chiave pubblica anon (la stessa di kataclimb inizia.html), poi WhatsApp come prima. Errore, rete assente o oltre 4 secondi: WhatsApp si apre lo stesso. La scheda si apre subito al click e va su wa.me dopo il salvataggio (Safari blocca i popup aperti dopo un'attesa); se il popup e' bloccato, stessa scheda. Bottone spento durante l'invio. Nessuna lettura dal DB, nessun altro dato. CUMULA v2.2 · 2026-10-20 · DOVE OPERIAMO, 3 ZONE IN PIU' (Marco 20 ott): dopo La Storta aggiunte Giustiniana, Tomba di Nerone, Cassia, stesso stile .zona-card; le 6 di prima restano. 9 card. Nient'altro. CUMULA v2.1 · 2026-10-20 · PASSO 03 SENZA SCADENZA (decisione Marco 20 ott): titolo "Preventivo e accettazione, entro 7 giorni" -> "Preventivo"; testo -> "Dopo la telefonata vi mandiamo il preventivo con la data concordata. La scuola lo conferma per iscritto." Tolti i 7 giorni per accettare il preventivo e la data che si sblocca dopo. Restano i 7 giorni del passo 04 (moduli mancanti completabili fino a 7 giorni prima). Nient'altro. CUMULA v2.0 · 2026-10-20 · PROCEDURA PER LE SCUOLE (consegna Marco v1, 20 ott, contenuti approvati da Marco): sostituite le sezioni "Per le scuole" e "Cosa offriamo" con Il progetto, Cosa sviluppano i ragazzi (4 card), Le due formule (Prima Lezione 10 euro a ragazzo / Percorso su preventivo), Come funziona (5 passi + Regole chiare), Modulo di richiesta che compone il messaggio e apre WhatsApp 393318743953 (nessun dato salvato, nessun backend) e Documenti per la scuola (PDF modulo di adesione). Tenuti menu, testata, Dove operiamo e piede. Tolta la vecchia fascia "Sei una scuola interessata?": il suo posto lo prende il modulo. Meta description nuova. Stili del modulo e del bottone scuro in un style di questa sola pagina: styles.css non toccato. Foto dei gruppi scuola (fornite da Marco 20 ott, ridotte a 1600px JPG 80, metadati tolti, volti dei ragazzi sfocati, istruttori nitidi): testata sala dall'alto (solo questa pagina), Il progetto sala da lontano, Come funziona parete arancione e soppalco. CUMULA v1.1 · 2026-09-07 · BONIFICA TERMINOLOGIA: nella scheda delle esperienze di una giornata il termine vietato sostituito con "in Accademia" ("palestra" resta ammesso solo in meta e alt per i motori di ricerca). Nessun altro testo toccato. CUMULA v1.0 · 2026-07-17 · voce nav "Libro" dopo Metodo → /libro-scalare-impossibile/. Nessun'altra modifica. NOTA: manca ancora "Calendario Accademia" (Cantiere A2). -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Progetti Scolastici | Arrampicata per Scuole Roma | Accademia RCC</title>
@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/styles.css?v12">
+<link rel="stylesheet" href="/assets/css/styles.css?v13">
 <style>
 /* Solo questa pagina (sito-scuole v3.0): formule, scuole con cui lavoriamo, blocco "Volete provare?", bottone scuro. Passi, regole e modulo sono in /progetti-scolastici/come-funziona/. */
 .page-hero{background-image:linear-gradient(180deg,rgba(26,22,20,.55) 0%,rgba(26,22,20,.78) 100%),url('/progetti-scolastici/img/scuola-sala-dallalto.jpg')}
@@ -68,15 +68,39 @@
     <a class="logo" href="/" aria-label="Accademia ArrampiKata RCC — Home">
       <img src="/assets/img/logo-rcc.png" alt="Accademia ArrampiKata RCC" width="227" height="114">
     </a>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/percorsi-arrampicata-adulti/">Percorsi</a></li>
-        <li><a href="/metodo-kataclimb/">Metodo</a></li>
-        <li><a href="/progetti-scolastici/" class="active">Scuole</a></li>
-        <li><a href="https://kataclimb.com/orari.html" target="_blank" rel="noopener">Calendario</a></li>
-        <li><a href="/#contatti">Contatti</a></li>
-        <li><a href="https://wa.me/393318743953?text=Ciao!%20Vorrei%20informazioni%20sui%20progetti%20scolastici." class="cta" target="_blank" rel="noopener">Prenota</a></li>
+    <a href="https://wa.me/393318743953?text=Ciao!%20Vorrei%20informazioni%20sui%20progetti%20scolastici." class="nav-prenota" target="_blank" rel="noopener">Prenota</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-pietre"><span class="barre" aria-hidden="true"></span>Menu</button>
+    <nav aria-label="Menu principale">
+      <ul class="nav-links" id="menu-pietre">
+        <li class="has-sub">
+          <button class="stone stone-btn" type="button" aria-expanded="false" aria-haspopup="true">Percorsi <span class="freccia" aria-hidden="true">▾</span></button>
+          <ul class="sub">
+            <li><a href="/percorsi-arrampicata-adulti/">Adulti</a></li>
+            <li><a href="/corso-giovani-18-24/">Giovani 18–24</a></li>
+            <li><a href="/corso-senior-over-60/">Senior 60+</a></li>
+            <li><a href="/corsi-arrampicata-bambini/">Bambini 6–11</a></li>
+            <li><a href="/corsi-arrampicata-ragazzi/">Ragazzi 12–17</a></li>
+            <li><a href="/veterani-accademia/">Veterani</a></li>
+          </ul>
+        </li>
+        <li><a href="https://kataclimb.com/orari.html" class="stone" target="_blank" rel="noopener">Calendario</a></li>
+        <li class="has-sub">
+          <button class="stone stone-btn" type="button" aria-expanded="false" aria-haspopup="true">Eventi <span class="freccia" aria-hidden="true">▾</span></button>
+          <ul class="sub">
+            <li><a href="https://kataclimb.com/eventi.html" target="_blank" rel="noopener">Eventi</a></li>
+            <li><a href="/katacamp-arrampicata-estero/">Viaggi KataCamp</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <button class="stone stone-btn" type="button" aria-expanded="false" aria-haspopup="true">Metodo <span class="freccia" aria-hidden="true">▾</span></button>
+          <ul class="sub">
+            <li><a href="/metodo-kataclimb/">Metodo KataClimb</a></li>
+            <li><a href="/libro-scalare-impossibile/">Libro</a></li>
+            <li><a href="/diventa-istruttore/">Diventa Istruttore</a></li>
+          </ul>
+        </li>
+        <li><a href="/progetti-scolastici/" class="stone active">Scuole</a></li>
+        <li><a href="/#contatti" class="stone">Contatti</a></li>
       </ul>
     </nav>
   </div>
@@ -221,5 +245,6 @@
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+<script src="/assets/js/menu.js?v1" defer></script>
 </body>
 </html>
