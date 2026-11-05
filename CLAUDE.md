@@ -15,6 +15,9 @@ Noi rappresentiamo lo storico: tutto quello che facciamo deve lasciare traccia.
 - Il branch di lavoro **e** di produzione è `nuovo-sito`.
 - `nuovo-sito` è collegato a Cloudflare Pages → **palestra-arrampicata-roma.it**.
 - **Mai fare `push` senza conferma esplicita di Marco.** Il commit è consentito; il push richiede sempre un via libera diretto.
+- **Allineamento automatico, senza interrompere Marco.** Prima della prima modifica a un file, eseguire `git pull --rebase origin nuovo-sito` in silenzio. Non chiedere conferma, non annunciarlo. Parlarne solo se il pull fallisce per un conflitto: in quel caso fermarsi, dire quale file e aspettare Marco.
+- **Se il push viene rifiutato** perché su origin ci sono commit nuovi: `git pull --rebase`, poi push normale. Mai `--force`.
+- **"Fine sessione"**: quando Marco lo dice, (1) verificare che non ci siano modifiche non committate, (2) se c'è un commit non pushato ricordarglielo e aspettare il suo ok, (3) `git pull --rebase`, (4) rispondere con una riga: branch, ultimo commit, allineato sì/no.
 
 ## Comunicazione
 
