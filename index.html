@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+<!-- KC-BUILD: sito-index v1.9 · 2026-11-05 · TESTI HOME (Marco 3–5 nov): valori (Gioco al posto di Divertimento, Relazione = partecipare e sostenere nell'errore), percorso adulti con i nomi veri dei corsi (Open, Advance, Intro ed Evo Corda, Fly), card Adulti/Bambini/Expert, intro pilastri, La struttura (parte della didattica: strapiombo = spazio aereo per voli ed errori), Il metodo, La passione, La missione (stare nella complessità, verticalità, partecipare), Le certificazioni. Tolte tutte le frasi per contrasto ("non clienti dipendenti", "non un giocattolo", "non siamo un franchise", "non un attestato di carta", "non siamo un centro qualsiasi"). Nessun markup, stile, link o immagine toccato. Il blocco "Per chi arrampica già" NON è in questa versione: aspetta il questionario e il profilo lead. CUMULA menu-iscrizione v1.0 (riga sotto). -->
 <!-- KC-BUILD: menu-iscrizione v1.0 · 2026-10-23 · MENU A ISCRIZIONE CON TENDINE (Marco 21–23 ott: "evidente come roccia incisa", "impatto e definizione", poi "accozzaglia di stili" sulle pietre → stessa lingua del sito). Voci in Playfair Display maiuscolo spaziato (il serif dei titoli del sito) dentro una fascia crema con doppia linea sopra e sotto, come un'iscrizione su pietra miliare; separatori a rombo; sezione attuale in terracotta con linea arancio. Tendine bianche in Inter (il testo del sito). PERCORSI ▾ (Adulti, Giovani 18–24, Senior 60+, Bambini 6–11, Ragazzi 12–17, Veterani) · CALENDARIO · EVENTI ▾ (Eventi, Viaggi KataCamp) · METODO ▾ (Metodo KataClimb, Libro, Diventa Istruttore) · SCUOLE · CONTATTI; bottone arancio a pillola come i bottoni del sito, stesso testo e link WhatsApp di prima della pagina; telefono: tasto MENU. Tolta la voce Home (il logo porta alla home). Riga "Altro" nel piede invariata. styles.css?v13 (blocco 4b in fondo) + /assets/js/menu.js. Nessun font nuovo, nessun testo di pagina toccato. --><!-- KC-BUILD: sito-index v1.8 · 2026-10-21 · MENÙ 7 VOCI (Marco 20 ott): testata ridotta a Home · Percorsi · Metodo · Scuole · Calendario · Contatti · Prenota (prima 12 voci a 14px che da laptop andavano su due righe). "Scuole" → /progetti-scolastici/, "Calendario" → kataclimb.com/orari.html in nuova scheda, "Contatti" → /#contatti. Senior 60+, Libro, Viaggi, Diventa Istruttore ed Eventi spostati nel piede, riga "Altro": nessuna pagina cancellata, nessun URL cambiato. styles.css?v12 (voci 15px, 16px da 1200px, una sola riga da 861px). Nient'altro. CUMULA sito-index v1.7 (riga sotto). -->
 <!-- KC-BUILD: sito-index v1.7 · 2026-09-14 · CARD GENITORI (Marco 14 set): sesta card nella griglia per età, dopo Ragazzi, stesso markup, → /corsi-arrampicata-bambini/#corso-genitori, Prima lezione 20€. Foto placeholder photo-corso-rcc.jpg (stessa degli Adulti) DA SOSTITUIRE con una foto genitori+figli. NIENT'ALTRO toccato. CUMULA v1.6 · 2026-09-07 · FOTO SENIOR: la card Senior passa dal placeholder photo-corso-rcc.jpg alla foto vera photo-senior-rcc.jpg (959x539, 167 KB). La card Adulti resta su photo-corso-rcc.jpg, che e sempre stata la sua. Alt invariato. CUMULA v1.5 (riga sotto). -->
 <!-- KC-BUILD: sito-index v1.5 · 2026-09-07 · SENIOR: voce nav "Senior 60+" dopo Percorsi, card Senior over 60 nella griglia per eta (subito dopo Giovani, stesso markup, foto placeholder photo-corso-rcc.jpg da sostituire), section-lead "Adulti, giovani, senior, bambini e ragazzi", senior over 60 nell'elenco corsi di meta e og description. Card Giovani: la lezione settimanale passa dal venerdi al GIOVEDI (allineata a corsi_attivi_settimanali: giovedi 21-22). Prezzi Prima Lezione invariati; il Senior entra dalla Prima Lezione Adulti a 25€. Con 12 voci la nav su desktop stretto non stava piu in una riga: aggiunto flex-wrap:wrap alla regola base .nav-links in styles.css (sotto 860px andava gia a capo, il font resta 13px, minimo consentito). Cache-buster del CSS condiviso portato a ?v11 su tutte le pagine: la home era rimasta indietro a ?v9 mentre le altre 11 erano gia a ?v10. Bonifica terminologia: "Non siamo una palestra qualsiasi" -> "Non siamo un centro di arrampicata qualsiasi" (termine vietato nei testi di pagina; resta legittimo in meta keywords e JSON-LD, che sono SEO). CUMULA v1.4 (riga sotto). -->
@@ -141,12 +142,12 @@
     <h2 class="section-title">Cosa ci muove</h2>
     <p class="section-lead">Sei principi che guidano ogni lezione, ogni gesto, ogni relazione dentro l'Accademia.</p>
     <div class="valori-grid">
-      <div class="valore"><h3>Sicurezza</h3><p>La base di ogni progressione. Mai trascurabile, mai negoziabile.</p></div>
-      <div class="valore"><h3>Miglioramento</h3><p>Ogni allievo trova il proprio passo. Cresci con il tuo ritmo.</p></div>
-      <div class="valore"><h3>Divertimento</h3><p>Il piacere come motore dell'apprendimento.</p></div>
-      <div class="valore"><h3>Diversità</h3><p>Ogni corpo, ogni storia, ogni percorso è unico.</p></div>
-      <div class="valore"><h3>Integrazione</h3><p>Corpo e mente in un unico gesto.</p></div>
-      <div class="valore"><h3>Relazione</h3><p>Il legame con l'altro come strumento di crescita.</p></div>
+      <div class="valore"><h3>Sicurezza</h3><p>La base di ogni progressione. L'Accademia definisce il campo di pratica e ne è garante.</p></div>
+      <div class="valore"><h3>Miglioramento</h3><p>Ogni allievo trova il proprio passo e il proprio ritmo.</p></div>
+      <div class="valore"><h3>Gioco</h3><p>Il gioco è importante, per questo lo prendiamo seriamente. Definiamo le regole del gioco per poterle adattare all'unicità di ognuno.</p></div>
+      <div class="valore"><h3>Diversità</h3><p>L'unicità di ognuno è una scintilla da far espandere. Ogni corpo, ogni storia, ogni percorso.</p></div>
+      <div class="valore"><h3>Integrazione</h3><p>Corpo, mente e relazione in un unico gesto.</p></div>
+      <div class="valore"><h3>Relazione</h3><p>Il legame con l'altro come luogo di crescita. Partecipare: sentirsi parte della cordata, sostenere l'altro anche nell'errore.</p></div>
     </div>
   </div>
 </section>
@@ -156,27 +157,27 @@
   <div class="block-inner">
     <p class="eyebrow">Come si entra</p>
     <h2 class="section-title">Il percorso per adulti</h2>
-    <p class="section-lead">Cinque livelli per accompagnare gli adulti da principianti a scalatori autonomi. Per i percorsi bambini e ragazzi vai alla pagina <a href="/percorsi-arrampicata-adulti/" style="color: var(--orange); text-decoration: underline;">Percorsi</a>.</p>
+    <p class="section-lead">Dalla Prima Lezione alla pratica libera, un corso alla volta, in cordata con gli altri. Per i percorsi bambini e ragazzi vai alla pagina <a href="/percorsi-arrampicata-adulti/" style="color: var(--orange); text-decoration: underline;">Percorsi</a>.</p>
     <div class="steps">
       <div class="step">
         <div class="step-num">01</div>
-        <div class="step-body"><h3>Prima Lezione — 25€</h3><p>Il primo contatto con la parete e con il metodo. Senza vincoli, senza abbonamento.</p></div>
+        <div class="step-body"><h3>Prima Lezione — 25€</h3><p>In un'ora capisci il metodo e vedi i primi risultati. Senza vincoli, senza abbonamento.</p></div>
       </div>
       <div class="step">
         <div class="step-num">02</div>
-        <div class="step-body"><h3>Open</h3><p>I primi nove Kata. Le fondamenta del corpo e della presenza.</p></div>
+        <div class="step-body"><h3>Corso Open</h3><p>I primi Kata. Le fondamenta del corpo, della presenza e della scelta.</p></div>
       </div>
       <div class="step">
         <div class="step-num">03</div>
-        <div class="step-body"><h3>Frequenza Regolare</h3><p>Costruire l'abitudine. Costruire il legame con la cordata.</p></div>
+        <div class="step-body"><h3>Corso Advance</h3><p>Comprendi come sviluppare la pratica dei principi e le tue capacità, e inizi a capire il grande valore dell'essere sostenuto nella pratica dai monitor.</p></div>
       </div>
       <div class="step">
         <div class="step-num">04</div>
-        <div class="step-body"><h3>Progressione</h3><p>Imposti i controlli con il compagno, impari a cadere e a gestire le cadute dell'altro.</p></div>
+        <div class="step-body"><h3>Corsi Corda — Intro ed Evo</h3><p>La cordata: assicurare il compagno, cadere e gestire le cadute dell'altro. Si impara a sostenere l'altro anche nell'errore, lecito e opportuno per sperimentare e crescere.</p></div>
       </div>
       <div class="step">
         <div class="step-num">05</div>
-        <div class="step-body"><h3>Frequenza Libera</h3><p>Il traguardo. La libertà è il risultato della competenza, non il punto di partenza.</p></div>
+        <div class="step-body"><h3>Fly e pratica libera</h3><p>Percorso completo: sala e corda in autonomia, il Fly per chi vuole andare oltre, il portale che tiene traccia del cammino.</p></div>
       </div>
     </div>
   </div>
@@ -193,7 +194,7 @@
         <img src="/assets/img/photo-corso-rcc.jpg" alt="Corso di arrampicata per adulti all'Accademia RCC La Storta Roma" loading="lazy">
         <div class="target-card-body">
           <h3>Adulti</h3>
-          <p>Per chi inizia da zero o vuole strutturare la pratica. Sicurezza, tecnica, autonomia.</p>
+          <p>Per chi inizia da zero o vuole dare struttura alla pratica. Sicurezza, tecnica, scelta.</p>
           <p class="card-price">Prima lezione: <strong>25€</strong></p>
         </div>
       </a>
@@ -220,7 +221,7 @@
         <div class="target-card-body">
           <p class="age-tag">6 — 12 anni</p>
           <h3>Bambini</h3>
-          <p>Gioco, condivisione, integrazione. Ognuno sviluppa la propria differenza per arricchire il gruppo.</p>
+          <p>Gioco, condivisione, integrazione. Le regole del gioco come campo protetto in cui ognuno sviluppa la propria scintilla.</p>
           <p class="card-price">Prima lezione: <strong>10€</strong></p>
         </div>
       </a>
@@ -247,7 +248,7 @@
         <div class="target-card-body">
           <p class="age-tag">Avanzato</p>
           <h3>Expert</h3>
-          <p>Per chi ha imparato a sentirsi e gestirsi sul verticale e vuole andare oltre, sviluppando le abilità e le responsabilità della cordata.</p>
+          <p>Per chi già arrampica e vuole andare oltre: sviluppare le abilità e le responsabilità della cordata, e trasformare quello che la parete tira fuori in direzione.</p>
         </div>
       </a>
     </div>
@@ -271,21 +272,21 @@
   <div class="block-inner">
     <p class="eyebrow">Cosa ci rende unici</p>
     <h2 class="section-title">Sei pilastri, una sola Accademia</h2>
-    <p class="section-lead">Non siamo un centro di arrampicata qualsiasi. Siamo un sistema integrato dove la struttura, il metodo e la comunità convergono per formare scalatori autonomi e consapevoli.</p>
+    <p class="section-lead">Struttura, metodo e comunità convergono in un unico lavoro: formare persone che sanno stare nella complessità e sentirsi parte di ciò che vivono. In parete e fuori.</p>
     <div class="unicita-grid">
       <div class="unicita-card">
         <div class="unicita-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg>
         </div>
         <h3>La struttura</h3>
-        <p><strong>L'unica indoor di Roma con 10 metri di altezza e 14 di sviluppo.</strong> Una parete vera, non un giocattolo. Adatta a ogni livello, dal primo passo alla via tecnica.</p>
+        <p><strong>Dieci metri di altezza, quattordici di sviluppo, parete strapiombante: l'unica indoor di Roma con queste misure.</strong> La struttura è parte della didattica. Lo strapiombo crea lo spazio aereo in cui errori e voli avvengono in aria, senza impatto: qui si pratica la gestione del volo e della sicura in un ambiente protetto. Il lavoro di alta specificità che serve per muoversi su pareti molto strapiombanti è ciò che rende sicuro lo sviluppo delle abilità. La parete è campo di prova delle procedure e della percezione della sicurezza.</p>
       </div>
       <div class="unicita-card">
         <div class="unicita-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
         </div>
         <h3>Il metodo</h3>
-        <p><strong>KataClimb: 33 Kata, 6 fasi, 33 anni di sviluppo.</strong> Un sistema codificato che integra corpo, mente e relazione. Niente è arbitrario, niente è decorativo.</p>
+        <p><strong>KataClimb: 33 Kata, 6 fasi, 33 anni di sviluppo.</strong> Procedure e processi integrati danno la base; su quella base si impara a scegliere, a sentire e a esprimersi.</p>
         <p style="margin-top: 16px;"><a class="btn-link-arrow" href="https://kataclimb.com" target="_blank" rel="noopener">Scopri il metodo KataClimb</a></p>
       </div>
       <div class="unicita-card">
@@ -301,21 +302,21 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
         <h3>La passione</h3>
-        <p><strong>33 anni di lavoro hands-on con migliaia di scalatori.</strong> Non siamo un franchise. Siamo persone che vivono la parete da generazioni e la insegnano con il corpo, non solo con le parole.</p>
+        <p><strong>33 anni di lavoro in parete con migliaia di scalatori.</strong> Persone che vivono la verticale da generazioni e la trasmettono con il corpo e con l'esempio. Ogni istruttore ha fatto il percorso che insegna.</p>
       </div>
       <div class="unicita-card">
         <div class="unicita-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
         <h3>La missione</h3>
-        <p><strong>Formare scalatori autonomi, non clienti dipendenti.</strong> Il nostro successo è quando non hai più bisogno di noi. Per questo il percorso ha un inizio, una progressione, una vetta.</p>
+        <p><strong>Formare persone capaci di stare nella complessità e di goderne mentre la attraversano.</strong> La parete porta in superficie paura, dolore, sensazioni, desiderio. Qui impari a restarci dentro, a scioglierle e a dare loro un significato. Da lì nasce una scelta che è tua: mossa dalla volontà e dall'essere autentico, costruttiva per te e per il gruppo. Questa è per noi la verticalità: sapere cosa fare, e insieme la disinvoltura di mantenere la visione di sé — da dove sei partito, perché, dove stai andando. Un lavoro sostenuto e monitorato, collaborativo e partecipativo: non solo agire insieme, sentirsi parte. L'Accademia definisce il campo di pratica e ne è garante: lo spazio protetto in cui ognuno si manifesta liberamente e l'errore è parte del gioco.</p>
       </div>
       <div class="unicita-card">
         <div class="unicita-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         </div>
         <h3>Le certificazioni</h3>
-        <p><strong>Riconoscimenti ASC/CONI con storico verificabile online.</strong> Non un attestato di carta, ma un percorso documentato e tracciabile, riconosciuto a livello istituzionale.</p>
+        <p><strong>Riconoscimenti ASC/CONI con storico verificabile online.</strong> Un percorso documentato e tracciabile: ogni passaggio resta scritto e consultabile.</p>
       </div>
     </div>
   </div>
