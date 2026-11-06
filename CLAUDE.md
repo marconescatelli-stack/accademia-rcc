@@ -34,3 +34,5 @@ Noi rappresentiamo lo storico: tutto quello che facciamo deve lasciare traccia.
 - Progetto Supabase: **`wbtougychlhnlcnonqge`**.
 - **Mai inventare nomi di colonne o di tabelle.** Verificare sempre contro `information_schema` prima di scrivere query o codice che tocca il DB.
 - La RPC per code/fasce si chiama **`imposta_coda_fascia`**.
+- RPC PUBBLICHE (sicurezza, 6 nov 2026 — Master v4.23): le funzioni nuove nascono CHIUSE a chi non ha login. Se una pagina senza login (es. il modulo di progetti-scolastici/come-funziona che usa inserisci_richiesta_scuola) chiama una RPC nuova, l'SQL della consegna deve contenere `GRANT EXECUTE ON FUNCTION public.<nome>(<argomenti>) TO anon;`. Senza quella riga la pagina riceve 401. Non aprire mai al pubblico funzioni che scrivono dati di persone già registrate.
+- GUARDIA D'IDENTITÀ (trappola T-UID-NULL): nelle funzioni SECURITY DEFINER il controllo si scrive `IF auth.uid() IS NULL OR …` (oppure `IS DISTINCT FROM`), mai solo `IF p_user_id <> auth.uid()`: senza login quel confronto vale NULL e non blocca.
