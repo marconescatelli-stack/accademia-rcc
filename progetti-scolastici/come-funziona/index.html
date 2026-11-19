@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+<!-- KC-BUILD: menu-iscrizione v1.1 · 2026-11-19 · PER ARRAMPICATORI NEL MENU PRINCIPALE (Marco 19 nov: "mettilo in home nel menù principale"): nuova voce "Per arrampicatori" subito dopo Percorsi, → kataclimb.com/arrampichi-gia.html (le nove domande). La voce "Arrampichi già" dentro la tendina Percorsi resta. Nient'altro toccato. -->
 <!-- KC-BUILD: menu-iscrizione v1.0 · 2026-10-23 · MENU A ISCRIZIONE CON TENDINE (Marco 21–23 ott: "evidente come roccia incisa", "impatto e definizione", poi "accozzaglia di stili" sulle pietre → stessa lingua del sito). Voci in Playfair Display maiuscolo spaziato (il serif dei titoli del sito) dentro una fascia crema con doppia linea sopra e sotto, come un'iscrizione su pietra miliare; separatori a rombo; sezione attuale in terracotta con linea arancio. Tendine bianche in Inter (il testo del sito). PERCORSI ▾ (Adulti, Giovani 18–24, Senior 60+, Bambini 6–11, Ragazzi 12–17, Veterani) · CALENDARIO · EVENTI ▾ (Eventi, Viaggi KataCamp) · METODO ▾ (Metodo KataClimb, Libro, Diventa Istruttore) · SCUOLE · CONTATTI; bottone arancio a pillola come i bottoni del sito, stesso testo e link WhatsApp di prima della pagina; telefono: tasto MENU. Tolta la voce Home (il logo porta alla home). Riga "Altro" nel piede invariata. styles.css?v13 (blocco 4b in fondo) + /assets/js/menu.js. Nessun font nuovo, nessun testo di pagina toccato. --><!-- KC-BUILD: sito-scuole-come v1.0 · 2026-10-21 · PAGINA NUOVA (consegna Marco v2, 20-21 ott): procedura e richiesta dati tolte dalla prima pagina e portate qui, a un clic da /progetti-scolastici/. Spostati pari pari dalla v2.4: Come funziona, Regole chiare, modulo di richiesta (Supabase poi WhatsApp), Documenti. Modifiche: nuovo passo 04 "Acconto di conferma (percorsi)" 250 euro alla scelta delle date, saldo entro la prima giornata (passi ora 01-06); passo 05 "Moduli nell'area scuola e saldo, almeno 3 settimane prima": la scuola carica le foto dei moduli nella sua area del portale; Regole chiare + riga Percorsi acconto/saldo; campo Email del referente obbligatorio (type email, maxlength 200, deve contenere @) passato alla RPC come p_email e nel testo WhatsApp come riga Email; opzione Formula visibile "Mini percorso" con value "Percorso" (CHECK a DB); testo sopra il modulo corretto: la richiesta viene registrata (dalla v2.3 la frase "non salviamo nessun dato" non era più vera); Regole chiare: la riga "Percorso" diventa "Mini percorso" (Marco 21 ott); Documenti + documento generale Progetto_Arrampicata_e_Consapevolezza_KataClimb_ASD_RCC_v5.pdf; modulo di adesione: i link (passo 05 e Documenti) puntano al nuovo Modulo_Adesione_Partecipante_Progetto_Scuole_v2.pdf (domanda di adesione e tesseramento, caricamento nell'area scuola), il v1 resta nel repo; in fondo richiamo Saint-Dominique. MENÙ 7 VOCI (Marco 20 ott) come tutto il sito. Nessuna chiave segreta: solo la anon pubblica. -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/styles.css?v13">
+<link rel="stylesheet" href="/assets/css/styles.css?v14">
 <style>
 /* Solo questa pagina (come-funziona v1.0): passi, regole, modulo di richiesta, bottone scuro. Spostati da /progetti-scolastici/ v2.4. */
 .page-hero{background-image:linear-gradient(180deg,rgba(26,22,20,.55) 0%,rgba(26,22,20,.78) 100%),url('/progetti-scolastici/img/scuola-sala-dallalto.jpg')}
@@ -89,6 +90,7 @@
             <li><a href="/#arrampichi-gia">Arrampichi già</a></li>
           </ul>
         </li>
+        <li><a href="https://kataclimb.com/arrampichi-gia.html" class="stone">Per arrampicatori</a></li>
         <li><a href="https://kataclimb.com/orari.html" class="stone" target="_blank" rel="noopener">Calendario</a></li>
         <li class="has-sub">
           <button class="stone stone-btn" type="button" aria-expanded="false" aria-haspopup="true">Eventi <span class="freccia" aria-hidden="true">▾</span></button>
